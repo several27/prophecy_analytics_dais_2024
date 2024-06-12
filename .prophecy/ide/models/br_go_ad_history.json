@@ -15,8 +15,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "br_go_ad_history",
-        "x" : 300,
-        "y" : 0,
+        "x" : 560,
+        "y" : -80,
         "phase" : 0,
         "macroDependencies" : [ ],
         "comment" : "Creates a new table 'br_go_ad_history' by selecting all records from 'Reformat_1'.",
@@ -36,10 +36,527 @@
       "ports" : {
         "inputs" : [ {
           "id" : "v5fNKrgw",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_group_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "ad_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "display_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_final_urls",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "base_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_host",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_path",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_source",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_medium",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_campaign",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_content",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_term",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "Reformat_1"
         } ],
         "outputs" : [ {
           "id" : "DhhqctFB",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_group_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "ad_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "display_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_final_urls",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "base_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_host",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_path",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_source",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_medium",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_campaign",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_content",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_term",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "grFWFA1CC7B8r2abQYC6g" : {
+      "id" : "grFWFA1CC7B8r2abQYC6g",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "dt_go_ad_history",
+        "slug" : "dt_go_ad_history",
+        "x" : 160,
+        "y" : -80,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "dt_go_ad_history",
+          "sourceType" : "Seed",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "-Uz-YanYD0dDMwZTBDURs",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ad_group_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "display_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_urls",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "hjrvfJTL5dg_t1vkIkDXj$$0EvPQGJQv8NH215oHn48s" : {
+      "id" : "hjrvfJTL5dg_t1vkIkDXj$$0EvPQGJQv8NH215oHn48s",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 360,
+        "y" : -80,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Restructures ad history data by extracting relevant information such as ad details, URLs, and UTM parameters.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "columnsSelector" : [ "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##type", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##ad_group_id", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##id", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##updated_at", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##display_url", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##status", "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0##final_urls" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CASE\n  WHEN type = 'union'\n    THEN 'source_relation'\n  ELSE ''\nEND"
+          },
+          "alias" : "source_relation"
+        }, {
+          "expression" : {
+            "expression" : "ad_group_id"
+          },
+          "alias" : "ad_group_id"
+        }, {
+          "expression" : {
+            "expression" : "id"
+          },
+          "alias" : "ad_id"
+        }, {
+          "expression" : {
+            "expression" : "updated_at"
+          },
+          "alias" : "updated_at"
+        }, {
+          "expression" : {
+            "expression" : "display_url"
+          },
+          "alias" : "display_url"
+        }, {
+          "expression" : {
+            "expression" : "type"
+          },
+          "alias" : "ad_type"
+        }, {
+          "expression" : {
+            "expression" : "status"
+          },
+          "alias" : "ad_status"
+        }, {
+          "expression" : {
+            "expression" : "'missing'"
+          },
+          "alias" : "is_most_recent_record"
+        }, {
+          "expression" : {
+            "expression" : "SPLIT(final_urls, ',')[0]"
+          },
+          "alias" : "source_final_urls"
+        }, {
+          "expression" : {
+            "expression" : "SUBSTRING_INDEX(SUBSTRING_INDEX(final_urls, ',', 1), ' ', -1)"
+          },
+          "alias" : "final_url"
+        }, {
+          "expression" : {
+            "expression" : "SUBSTRING_INDEX(SUBSTRING_INDEX(final_urls, '/', 3), '/', -1)"
+          },
+          "alias" : "base_url"
+        }, {
+          "expression" : {
+            "expression" : "PARSE_URL(final_urls, 'HOST')"
+          },
+          "alias" : "url_host"
+        }, {
+          "expression" : {
+            "expression" : "SUBSTRING_INDEX(SUBSTRING_INDEX(final_urls, '/', -1), '?', 1)"
+          },
+          "alias" : "url_path"
+        }, {
+          "expression" : {
+            "expression" : "'missing'"
+          },
+          "alias" : "utm_source"
+        }, {
+          "expression" : {
+            "expression" : "'missing'"
+          },
+          "alias" : "utm_medium"
+        }, {
+          "expression" : {
+            "expression" : "REGEXP_EXTRACT(final_urls, '\\\\?utm_campaign=([^&]+)')"
+          },
+          "alias" : "utm_campaign"
+        }, {
+          "expression" : {
+            "expression" : "SUBSTRING(final_urls, INSTR(final_urls, 'utm_content=') + LENGTH('utm_content='))"
+          },
+          "alias" : "utm_content"
+        }, {
+          "expression" : {
+            "expression" : "REGEXP_EXTRACT(final_urls, '\\\\butm_term=([^&]*)', 1)"
+          },
+          "alias" : "utm_term"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ad_group_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "display_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_urls",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "K9-5dzpC3MR_NRD1TFltt$$51KUTCSmPdJD-tGJ7_GD7",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_group_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "ad_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "display_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ad_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_final_urls",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "base_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_host",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "url_path",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_source",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_medium",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_campaign",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_content",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "utm_term",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -47,6 +564,18 @@
       }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "IhOd67KXvIqcuIQ8sEzBM$$ADCXL_68WYvuv4zaniN0-",
+    "source" : "grFWFA1CC7B8r2abQYC6g",
+    "sourcePort" : "-Uz-YanYD0dDMwZTBDURs",
+    "target" : "hjrvfJTL5dg_t1vkIkDXj$$0EvPQGJQv8NH215oHn48s",
+    "targetPort" : "V_PwAAg0kNa6ZZi2rtHai$$sUFdksoxIF0JMK_VrNiO0"
+  }, {
+    "id" : "k1pxXSnasMBGyC6WIRuen",
+    "source" : "hjrvfJTL5dg_t1vkIkDXj$$0EvPQGJQv8NH215oHn48s",
+    "sourcePort" : "K9-5dzpC3MR_NRD1TFltt$$51KUTCSmPdJD-tGJ7_GD7",
+    "target" : "br_go_ad_history##d9iHlBgI",
+    "targetPort" : "v5fNKrgw"
+  } ],
   "component" : "Model"
 }
