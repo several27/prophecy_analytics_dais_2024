@@ -604,7 +604,36 @@ sqlModels:
     createdAt: '2024-06-11 03:42:29'
   .prophecy/metadata/sqlmodels/sv_am_account_report:
     name: sv_am_account_report
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: profile_id
+        dataType:
+          type: Integer
+      - name: source_relation
+        dataType:
+          type: String
+      - name: account_name
+        dataType:
+          type: String
+      - name: account_id
+        dataType:
+          type: String
+      - name: date_day
+        dataType:
+          type: Integer
+      - name: currency_code
+        dataType:
+          type: String
+      - name: total_cost
+        dataType:
+          type: Double
+      - name: total_clicks
+        dataType:
+          type: Bigint
+      - name: total_impressions
+        dataType:
+          type: Double
     description: null
     author: maciej@prophecy.io
     files:
@@ -619,7 +648,21 @@ sqlModels:
     createdAt: '2024-06-11 03:50:11'
   .prophecy/metadata/sqlmodels/sv_go_account_report:
     name: sv_go_account_report
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: CUSTOMER_ID
+        dataType:
+          type: Integer
+      - name: TOTAL_COST_MICROS
+        dataType:
+          type: Bigint
+      - name: TOTAL_IMPRESSIONS
+        dataType:
+          type: Bigint
+      - name: TOTAL_SPEND
+        dataType:
+          type: Double
     description: null
     author: maciej@prophecy.io
     files:
