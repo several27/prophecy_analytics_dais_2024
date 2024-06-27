@@ -15,8 +15,458 @@
     "version" : 3
   },
   "processes" : {
-    "sv_am_account_report##EnoZENpj" : {
-      "id" : "sv_am_account_report##EnoZENpj",
+    "report##tgkgrMrz" : {
+      "id" : "report##tgkgrMrz",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "report",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "br_am_campaign_level_report",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "CWnpDNIh",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "campaign_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "campaign_applicable_budget_rule_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_applicable_budget_rule_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_bidding_strategy",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_budget_amount",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "campaign_budget_currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_budget_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_rule_based_budget_amount",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "joined_data##AEJDuLLI" : {
+      "id" : "joined_data##AEJDuLLI",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "joined_data",
+        "x" : 220,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Combines campaign history, profile, and report data to provide a comprehensive view of account performance."
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "profile",
+          "expression" : {
+            "expression" : "campaign_history.profile_id = profile.profile_id"
+          },
+          "joinType" : ""
+        }, {
+          "alias" : "report",
+          "expression" : {
+            "expression" : "campaign_history.campaign_id = report.campaign_id"
+          },
+          "joinType" : ""
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "profile.account_name"
+          }
+        }, {
+          "expression" : {
+            "expression" : "report.clicks"
+          }
+        }, {
+          "expression" : {
+            "expression" : "report.impressions"
+          }
+        }, {
+          "expression" : {
+            "expression" : "report.cost"
+          }
+        }, {
+          "expression" : {
+            "expression" : "campaign_history.source_relation"
+          },
+          "alias" : "source_relation"
+        }, {
+          "expression" : {
+            "expression" : "report.date_day"
+          },
+          "alias" : "date_day"
+        }, {
+          "expression" : {
+            "expression" : "profile.account_id"
+          },
+          "alias" : "account_id"
+        }, {
+          "expression" : {
+            "expression" : "profile.currency_code"
+          },
+          "alias" : "currency_code"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "y0JxYmee##profile_id", "iUPZTgRj##profile_id", "y0JxYmee##campaign_id", "Y9DwtG98##campaign_id", "iUPZTgRj##account_name", "Y9DwtG98##clicks", "Y9DwtG98##impressions", "Y9DwtG98##cost", "y0JxYmee##source_relation", "Y9DwtG98##date_day", "iUPZTgRj##account_id", "iUPZTgRj##currency_code" ],
+        "headAlias" : "campaign_history"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "y0JxYmee",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "creation_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "last_updated_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "portfolio_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "bidding_strategy",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "budget",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "budget_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "effective_budget",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "end_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "serving_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "state",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "targeting_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "campaign_history"
+        }, {
+          "id" : "iUPZTgRj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "_fivetran_deleted",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_marketplace_string_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_sub_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_valid_payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "country_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "daily_budget",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "timezone",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "profile"
+        }, {
+          "id" : "Y9DwtG98",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "campaign_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "campaign_applicable_budget_rule_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_applicable_budget_rule_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_bidding_strategy",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_budget_amount",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "campaign_budget_currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_budget_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_rule_based_budget_amount",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "report"
+        } ],
+        "outputs" : [ {
+          "id" : "Nr8Nsbat",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sv_am_account_report##Mf37j6Ip" : {
+      "id" : "sv_am_account_report##Mf37j6Ip",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "sv_am_account_report",
@@ -29,7 +479,7 @@
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM sum_clicks_impressions_cost\n",
+        "query" : "SELECT * \n\nFROM sum_cost_clicks_impressions\n",
         "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
@@ -38,11 +488,471 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "yuxubGCb",
-          "slug" : "sum_clicks_impressions_cost"
+          "id" : "caYdi9Dz",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "sum_cost_clicks_impressions"
         } ],
         "outputs" : [ {
-          "id" : "LKRGVRia",
+          "id" : "VzHWka9M",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "campaign_history##m1OHibfk" : {
+      "id" : "campaign_history##m1OHibfk",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "campaign_history",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "br_am_campaign_history",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "qBlWM4Mq",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "campaign_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "creation_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "last_updated_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "portfolio_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "bidding_strategy",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "budget",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "budget_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "effective_budget",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "end_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "serving_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "state",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "targeting_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "profile##evQ2ocKe" : {
+      "id" : "profile##evQ2ocKe",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "profile",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "br_am_profile",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "GtFkZ8gp",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "_fivetran_deleted",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_marketplace_string_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_sub_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_valid_payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "country_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "daily_budget",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "timezone",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sum_cost_clicks_impressions##j7vC2auK" : {
+      "id" : "sum_cost_clicks_impressions##j7vC2auK",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "sum_cost_clicks_impressions",
+        "x" : 420,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "any_value(source_relation)"
+          },
+          "alias" : "source_relation"
+        }, {
+          "expression" : {
+            "expression" : "any_value(account_name)"
+          },
+          "alias" : "account_name"
+        }, {
+          "expression" : {
+            "expression" : "any_value(currency_code)"
+          },
+          "alias" : "currency_code"
+        }, {
+          "expression" : {
+            "expression" : "any_value(date_day)"
+          },
+          "alias" : "date_day"
+        }, {
+          "expression" : {
+            "expression" : "SUM(clicks)"
+          },
+          "alias" : "total_clicks"
+        }, {
+          "expression" : {
+            "expression" : "SUM(impressions)"
+          },
+          "alias" : "total_impressions"
+        }, {
+          "expression" : {
+            "expression" : "SUM(cost)"
+          },
+          "alias" : "total_cost"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "UImTZcLQ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "joined_data"
+        } ],
+        "outputs" : [ {
+          "id" : "y3DITLhy",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -50,6 +960,36 @@
       }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "TiODWOyI",
+    "source" : "campaign_history##m1OHibfk",
+    "sourcePort" : "qBlWM4Mq",
+    "target" : "joined_data##AEJDuLLI",
+    "targetPort" : "y0JxYmee"
+  }, {
+    "id" : "bZM9ApHr",
+    "source" : "profile##evQ2ocKe",
+    "sourcePort" : "GtFkZ8gp",
+    "target" : "joined_data##AEJDuLLI",
+    "targetPort" : "iUPZTgRj"
+  }, {
+    "id" : "XjXTkUcg",
+    "source" : "report##tgkgrMrz",
+    "sourcePort" : "CWnpDNIh",
+    "target" : "joined_data##AEJDuLLI",
+    "targetPort" : "Y9DwtG98"
+  }, {
+    "id" : "mak8RIG4",
+    "source" : "joined_data##AEJDuLLI",
+    "sourcePort" : "Nr8Nsbat",
+    "target" : "sum_cost_clicks_impressions##j7vC2auK",
+    "targetPort" : "UImTZcLQ"
+  }, {
+    "id" : "FPXpq1pX",
+    "source" : "sum_cost_clicks_impressions##j7vC2auK",
+    "sourcePort" : "y3DITLhy",
+    "target" : "sv_am_account_report##Mf37j6Ip",
+    "targetPort" : "caYdi9Dz"
+  } ],
   "component" : "Model"
 }

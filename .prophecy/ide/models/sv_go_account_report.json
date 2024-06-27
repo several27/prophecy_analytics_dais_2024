@@ -15,12 +15,397 @@
     "version" : 3
   },
   "processes" : {
-    "sv_go_account_report##tGtm8BZt" : {
-      "id" : "sv_go_account_report##tGtm8BZt",
+    "dt_go_account_history##sRLvXU0p" : {
+      "id" : "dt_go_account_history##sRLvXU0p",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "dt_go_account_history",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "dt_go_account_history",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "PrLaVWY0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "descriptive_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_url_suffix",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "hidden",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager_customer_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "optimization_score",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "pay_per_conversion_eligibility_failure_reasons",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "test_account",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "tracking_url_template",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "aggregated_data##jnbArbN8" : {
+      "id" : "aggregated_data##jnbArbN8",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "aggregated_data",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Aggregates data by customer, calculating total spend, impressions, clicks, and interactions.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "SUM(cost_micros)"
+          },
+          "alias" : "total_spend"
+        }, {
+          "expression" : {
+            "expression" : "SUM(impressions)"
+          },
+          "alias" : "total_impressions"
+        }, {
+          "expression" : {
+            "expression" : "SUM(clicks)"
+          },
+          "alias" : "total_clicks"
+        }, {
+          "expression" : {
+            "expression" : "any_value(date)"
+          },
+          "alias" : "date"
+        }, {
+          "expression" : {
+            "expression" : "any_value(device)"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "any_value(interactions)"
+          },
+          "alias" : "interactions"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "k21Ch9tE##customer_id", "k21Ch9tE##cost_micros", "k21Ch9tE##impressions", "k21Ch9tE##clicks" ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "k21Ch9tE",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "_fivetran_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "active_view_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_viewability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions_value",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "interaction_event_types",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "view_through_conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager_customer_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "final_url_suffix",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "test_account",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "tracking_url_template",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "optimization_score",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "pay_per_conversion_eligibility_failure_reasons",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "descriptive_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "hidden",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "by__fivetran_synced"
+        } ],
+        "outputs" : [ {
+          "id" : "PR2ndCDj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_spend",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sv_go_account_report##FUA2SViB" : {
+      "id" : "sv_go_account_report##FUA2SViB",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "sv_go_account_report",
-        "x" : 820,
+        "x" : 760,
         "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
@@ -29,7 +414,7 @@
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM limit_100\n",
+        "query" : "SELECT * \n\nFROM Reformat_1\n",
         "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
@@ -38,11 +423,927 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "eAzWYsp4",
-          "slug" : "limit_100"
+          "id" : "RqL48Cq6",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_spend",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "formatted_spend",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Reformat_1"
         } ],
         "outputs" : [ {
-          "id" : "OMSwxKGp",
+          "id" : "k24xSTtO",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_spend",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "formatted_spend",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "giY2tSGj9Dq6EiWaYj35Z$$dl9sc1brBYd8JSLSblukr" : {
+      "id" : "giY2tSGj9Dq6EiWaYj35Z$$dl9sc1brBYd8JSLSblukr",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 580,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Formats aggregated data for better readability, including customer ID, total spend, total impressions, total clicks, date, device, interactions, and formatted spend.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "columnsSelector" : [ "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##customer_id", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##total_spend", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##total_impressions", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##total_clicks", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##date", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##device", "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn##interactions" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "total_spend"
+          },
+          "alias" : "total_spend"
+        }, {
+          "expression" : {
+            "expression" : "total_impressions"
+          },
+          "alias" : "total_impressions"
+        }, {
+          "expression" : {
+            "expression" : "total_clicks"
+          },
+          "alias" : "total_clicks"
+        }, {
+          "expression" : {
+            "expression" : "date"
+          },
+          "alias" : "date"
+        }, {
+          "expression" : {
+            "expression" : "device"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "interactions"
+          },
+          "alias" : "interactions"
+        }, {
+          "expression" : {
+            "expression" : "CONCAT('$', FORMAT_NUMBER(total_spend, 2))"
+          },
+          "alias" : "formatted_spend"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_spend",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "F3b1HzzOEyIgNy6hisDFq$$ahhD394pAWpMxPa7HsgV6",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_spend",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "formatted_spend",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "dt_go_account_stats##qWBDnIsw" : {
+      "id" : "dt_go_account_stats##qWBDnIsw",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "dt_go_account_stats",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "dt_go_account_stats",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "acID7uzh",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "_fivetran_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "active_view_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_viewability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions_value",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "interaction_event_types",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "view_through_conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "by__fivetran_synced##ndZ4Pxbe" : {
+      "id" : "by__fivetran_synced##ndZ4Pxbe",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by__fivetran_synced",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "dt_go_account_stats",
+          "expression" : {
+            "expression" : "dt_go_account_stats.customer_id = dt_go_account_history.id"
+          },
+          "joinType" : "INNER"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "dt_go_account_stats._fivetran_id"
+          },
+          "alias" : "_fivetran_id"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.date"
+          },
+          "alias" : "date"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.active_view_impressions"
+          },
+          "alias" : "active_view_impressions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.active_view_measurability"
+          },
+          "alias" : "active_view_measurability"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.active_view_measurable_cost_micros"
+          },
+          "alias" : "active_view_measurable_cost_micros"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.active_view_measurable_impressions"
+          },
+          "alias" : "active_view_measurable_impressions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.active_view_viewability"
+          },
+          "alias" : "active_view_viewability"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.ad_network_type"
+          },
+          "alias" : "ad_network_type"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.clicks"
+          },
+          "alias" : "clicks"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.conversions"
+          },
+          "alias" : "conversions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.conversions_value"
+          },
+          "alias" : "conversions_value"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.cost_micros"
+          },
+          "alias" : "cost_micros"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.device"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.impressions"
+          },
+          "alias" : "impressions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.interaction_event_types"
+          },
+          "alias" : "interaction_event_types"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.interactions"
+          },
+          "alias" : "interactions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_stats.view_through_conversions"
+          },
+          "alias" : "view_through_conversions"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.currency_code"
+          },
+          "alias" : "currency_code"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.auto_tagging_enabled"
+          },
+          "alias" : "auto_tagging_enabled"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.manager_customer_id"
+          },
+          "alias" : "manager_customer_id"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.final_url_suffix"
+          },
+          "alias" : "final_url_suffix"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.test_account"
+          },
+          "alias" : "test_account"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.manager"
+          },
+          "alias" : "manager"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history._fivetran_synced"
+          },
+          "alias" : "_fivetran_synced"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.tracking_url_template"
+          },
+          "alias" : "tracking_url_template"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.optimization_score"
+          },
+          "alias" : "optimization_score"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.updated_at"
+          },
+          "alias" : "updated_at"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.id"
+          },
+          "alias" : "id"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.pay_per_conversion_eligibility_failure_reasons"
+          },
+          "alias" : "pay_per_conversion_eligibility_failure_reasons"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.descriptive_name"
+          },
+          "alias" : "descriptive_name"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.time_zone"
+          },
+          "alias" : "time_zone"
+        }, {
+          "expression" : {
+            "expression" : "dt_go_account_history.hidden"
+          },
+          "alias" : "hidden"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "RiupwJ0j##customer_id", "VaJQMvNT##id", "RiupwJ0j##_fivetran_id", "RiupwJ0j##customer_id", "RiupwJ0j##date", "RiupwJ0j##active_view_impressions", "RiupwJ0j##active_view_measurability", "RiupwJ0j##active_view_measurable_cost_micros", "RiupwJ0j##active_view_measurable_impressions", "RiupwJ0j##active_view_viewability", "RiupwJ0j##ad_network_type", "RiupwJ0j##clicks", "RiupwJ0j##conversions", "RiupwJ0j##conversions_value", "RiupwJ0j##cost_micros", "RiupwJ0j##device", "RiupwJ0j##impressions", "RiupwJ0j##interaction_event_types", "RiupwJ0j##interactions", "RiupwJ0j##view_through_conversions", "VaJQMvNT##currency_code", "VaJQMvNT##auto_tagging_enabled", "VaJQMvNT##manager_customer_id", "VaJQMvNT##final_url_suffix", "VaJQMvNT##test_account", "VaJQMvNT##manager", "VaJQMvNT##_fivetran_synced", "VaJQMvNT##tracking_url_template", "VaJQMvNT##optimization_score", "VaJQMvNT##updated_at", "VaJQMvNT##id", "VaJQMvNT##pay_per_conversion_eligibility_failure_reasons", "VaJQMvNT##descriptive_name", "VaJQMvNT##time_zone", "VaJQMvNT##hidden" ],
+        "headAlias" : "dt_go_account_history"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "VaJQMvNT",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "descriptive_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "final_url_suffix",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "hidden",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager_customer_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "optimization_score",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "pay_per_conversion_eligibility_failure_reasons",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "test_account",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "tracking_url_template",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "dt_go_account_history"
+        }, {
+          "id" : "RiupwJ0j",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "_fivetran_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "active_view_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_viewability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions_value",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "interaction_event_types",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "view_through_conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "dt_go_account_stats"
+        } ],
+        "outputs" : [ {
+          "id" : "sjA7hIew",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "_fivetran_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "active_view_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_measurable_impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "active_view_viewability",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "conversions_value",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cost_micros",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "interaction_event_types",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "interactions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "view_through_conversions",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager_customer_id",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "final_url_suffix",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "test_account",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "_fivetran_synced",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "tracking_url_template",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "optimization_score",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "pay_per_conversion_eligibility_failure_reasons",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "descriptive_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "hidden",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -50,6 +1351,36 @@
       }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "ngTgrgUa",
+    "source" : "dt_go_account_history##sRLvXU0p",
+    "sourcePort" : "PrLaVWY0",
+    "target" : "by__fivetran_synced##ndZ4Pxbe",
+    "targetPort" : "VaJQMvNT"
+  }, {
+    "id" : "jCTho78r",
+    "source" : "dt_go_account_stats##qWBDnIsw",
+    "sourcePort" : "acID7uzh",
+    "target" : "by__fivetran_synced##ndZ4Pxbe",
+    "targetPort" : "RiupwJ0j"
+  }, {
+    "id" : "nSKNPx3B",
+    "source" : "by__fivetran_synced##ndZ4Pxbe",
+    "sourcePort" : "sjA7hIew",
+    "target" : "aggregated_data##jnbArbN8",
+    "targetPort" : "k21Ch9tE"
+  }, {
+    "id" : "0o8fZqvjhzLvdYJMcW1HO$$fCA2KKI1Fn9u-rjWo14ui",
+    "source" : "giY2tSGj9Dq6EiWaYj35Z$$dl9sc1brBYd8JSLSblukr",
+    "sourcePort" : "F3b1HzzOEyIgNy6hisDFq$$ahhD394pAWpMxPa7HsgV6",
+    "target" : "sv_go_account_report##FUA2SViB",
+    "targetPort" : "RqL48Cq6"
+  }, {
+    "id" : "vKt2GRHJ5q5rldFZ-Ns2Y$$jCNu0OwoPWuhKoPo8ctPj",
+    "source" : "aggregated_data##jnbArbN8",
+    "sourcePort" : "PR2ndCDj",
+    "target" : "giY2tSGj9Dq6EiWaYj35Z$$dl9sc1brBYd8JSLSblukr",
+    "targetPort" : "yPb3DXYhLtoNnnvU5QOMf$$OD_ouSFBYvjHq8bez2ssn"
+  } ],
   "component" : "Model"
 }
