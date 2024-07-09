@@ -20,9 +20,9 @@ def analytics():
           ["{} && cd $tmpDir/{}".format(
              (
                "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
-               + "--depth 1 {} --branch {} $tmpDir".format(
+               + "{} --branch {} --single-branch $tmpDir".format(
                  "https://github.com/several27/prophecy_analytics_dais_2024",
-                 "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__"
+                 None
                )
              ),
              ""

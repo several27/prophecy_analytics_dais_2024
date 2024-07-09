@@ -639,6 +639,10 @@
     "type" : "Model",
     "syncedOnce" : true
   }, {
+    "name" : "br_go_ad_history",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
     "name" : "br_li_account_history",
     "type" : "Model",
     "syncedOnce" : false
@@ -652,6 +656,10 @@
     "syncedOnce" : true
   }, {
     "name" : "gl_all_account_report",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "sv_go_account_report",
     "type" : "Model",
     "syncedOnce" : false
   }, {
