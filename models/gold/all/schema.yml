@@ -1,0 +1,20 @@
+---
+version: 2
+models:
+- name: "gl_all_account_report"
+  columns:
+  - name: "source_relation"
+    dataType:
+      type: "String"
+  - name: "account_id"
+    dataType:
+      type: "Integer"
+  - name: "clicks"
+    dataType:
+      type: "Bigint"
+  - name: "impressions"
+    dataType:
+      type: "Bigint"
+  - name: "cost"
+    dataType:
+      type: "Float"

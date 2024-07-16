@@ -493,6 +493,7 @@ sqlModels:
     files:
     - models/gold/all/gl_all_account_report.sql
     - .prophecy/ide/models/gl_all_account_report.json
+    - models/gold/all/schema.yml
     sqlDependencies:
       models: []
       datasets: []
@@ -618,7 +619,18 @@ sqlModels:
     createdAt: '2024-06-11 03:50:11'
   .prophecy/metadata/sqlmodels/sv_go_account_report:
     name: sv_go_account_report
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: account_id
+        dataType:
+          type: Integer
+      - name: TOTAL_SPENT
+        dataType:
+          type: Double
+      - name: TOTAL_IMPRESSIONS
+        dataType:
+          type: Bigint
     description: null
     author: maciej@prophecy.io
     files:
@@ -633,7 +645,16 @@ sqlModels:
     createdAt: '2024-06-10 19:58:04'
 sqlSnapshots: {}
 sqlTests: {}
-sqlMacros: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/test:
+    name: test
+    macroType: expression
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - macros/test.sql
+    - .prophecy/ide/macros/test.json
+    createdAt: '2024-07-12 16:55:02'
 sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_li_campaign_history:
     name: dt_li_campaign_history

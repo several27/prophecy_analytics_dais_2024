@@ -1,0 +1,13 @@
+{
+  "test" : {
+    "name" : "test",
+    "macroType" : "expression",
+    "definition" : "",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ ]
+    },
+    "staleState" : "none",
+    "version" : 0
+  }
+}

@@ -651,7 +651,7 @@
     "type" : "Model",
     "syncedOnce" : true
   }, {
-    "name" : "gl_all_account_report",
+    "name" : "sv_go_account_report",
     "type" : "Model",
     "syncedOnce" : false
   }, {
