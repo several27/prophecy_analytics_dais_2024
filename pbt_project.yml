@@ -204,7 +204,63 @@ sqlModels:
     createdAt: '2024-06-09 19:44:47'
   .prophecy/metadata/sqlmodels/br_go_ad_history:
     name: br_go_ad_history
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: source_relation
+        dataType:
+          type: String
+      - name: ad_group_id
+        dataType:
+          type: Float
+      - name: ad_id
+        dataType:
+          type: Float
+      - name: updated_at
+        dataType:
+          type: Date
+      - name: display_url
+        dataType:
+          type: String
+      - name: ad_type
+        dataType:
+          type: String
+      - name: ad_status
+        dataType:
+          type: String
+      - name: is_most_recent_record
+        dataType:
+          type: Boolean
+      - name: source_final_urls
+        dataType:
+          type: String
+      - name: final_url
+        dataType:
+          type: String
+      - name: base_url
+        dataType:
+          type: String
+      - name: url_host
+        dataType:
+          type: String
+      - name: url_path
+        dataType:
+          type: String
+      - name: utm_source
+        dataType:
+          type: String
+      - name: utm_medium
+        dataType:
+          type: String
+      - name: utm_campaign
+        dataType:
+          type: String
+      - name: utm_content
+        dataType:
+          type: String
+      - name: utm_term
+        dataType:
+          type: String
     description: Each record represents a version of an ad in Google Ads.
     author: maciej@prophecy.io
     files:
@@ -478,7 +534,7 @@ sqlModels:
           type: String
       - name: account_id
         dataType:
-          type: Integer
+          type: String
       - name: clicks
         dataType:
           type: Bigint
@@ -603,7 +659,36 @@ sqlModels:
     createdAt: '2024-06-11 03:42:29'
   .prophecy/metadata/sqlmodels/sv_am_account_report:
     name: sv_am_account_report
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: profile_id
+        dataType:
+          type: Integer
+      - name: source_relation
+        dataType:
+          type: String
+      - name: account_name
+        dataType:
+          type: String
+      - name: account_id
+        dataType:
+          type: String
+      - name: currency_code
+        dataType:
+          type: String
+      - name: date_day
+        dataType:
+          type: Integer
+      - name: total_cost
+        dataType:
+          type: Double
+      - name: total_impressions
+        dataType:
+          type: Bigint
+      - name: total_clicks
+        dataType:
+          type: Bigint
     description: null
     author: maciej@prophecy.io
     files:
@@ -618,7 +703,54 @@ sqlModels:
     createdAt: '2024-06-11 03:50:11'
   .prophecy/metadata/sqlmodels/sv_go_account_report:
     name: sv_go_account_report
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: account_id
+        dataType:
+          type: Integer
+      - name: TOTAL_CLICKS
+        dataType:
+          type: Bigint
+      - name: TOTAL_IMPRESSIONS
+        dataType:
+          type: Bigint
+      - name: TOTAL_SPEND
+        dataType:
+          type: Double
+      - name: date_day
+        dataType:
+          type: Date
+      - name: ad_network_type
+        dataType:
+          type: String
+      - name: device
+        dataType:
+          type: String
+      - name: currency_code
+        dataType:
+          type: String
+      - name: updated_at
+        dataType:
+          type: Timestamp
+      - name: source_relation
+        dataType:
+          type: String
+      - name: account_name
+        dataType:
+          type: String
+      - name: auto_tagging_enabled
+        dataType:
+          type: Boolean
+      - name: time_zone
+        dataType:
+          type: String
+      - name: is_most_recent_record
+        dataType:
+          type: Boolean
+      - name: formatted_spend
+        dataType:
+          type: String
     description: null
     author: maciej@prophecy.io
     files:

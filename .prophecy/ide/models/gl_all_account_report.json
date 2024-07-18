@@ -15,20 +15,823 @@
     "version" : 3
   },
   "processes" : {
-    "cleanup_li##YOwZJi15" : {
-      "id" : "cleanup_li##YOwZJi15",
+    "cleanup_am##JfRW5TUk" : {
+      "id" : "cleanup_am##JfRW5TUk",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "cleanup_am",
+        "x" : 220,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "PR3tkDjj##source_relation", "PR3tkDjj##account_id", "PR3tkDjj##total_clicks", "PR3tkDjj##total_impressions", "PR3tkDjj##total_cost" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "source_relation"
+          }
+        }, {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "total_clicks"
+          },
+          "alias" : "clicks"
+        }, {
+          "expression" : {
+            "expression" : "total_impressions"
+          },
+          "alias" : "impressions"
+        }, {
+          "expression" : {
+            "expression" : "total_cost"
+          },
+          "alias" : "cost"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PR3tkDjj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "sv_am_account_report"
+        } ],
+        "outputs" : [ {
+          "id" : "gSEURdFL",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "cleanup_go##M0nSTZrT" : {
+      "id" : "cleanup_go##M0nSTZrT",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "cleanup_go",
+        "x" : 220,
+        "y" : 420,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "jZlJidak##source_relation", "jZlJidak##account_id", "jZlJidak##TOTAL_CLICKS", "jZlJidak##TOTAL_IMPRESSIONS", "jZlJidak##TOTAL_SPEND" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "source_relation"
+          }
+        }, {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_CLICKS"
+          },
+          "alias" : "clicks"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_IMPRESSIONS"
+          },
+          "alias" : "impressions"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_SPEND"
+          },
+          "alias" : "cost"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "jZlJidak",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "TOTAL_CLICKS",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "TOTAL_IMPRESSIONS",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "TOTAL_SPEND",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "formatted_spend",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "sv_go_account_report"
+        } ],
+        "outputs" : [ {
+          "id" : "WlWWP2mz",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "gl_all_account_report##YQktI0DL" : {
+      "id" : "gl_all_account_report##YQktI0DL",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "gl_all_account_report",
+        "x" : 620,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM all_account_reports\n",
+        "isModel" : false,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WI9WlAob",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "all_account_reports"
+        } ],
+        "outputs" : [ {
+          "id" : "LtFUd44L",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sv_li_account_report##gaH7DRdK" : {
+      "id" : "sv_li_account_report##gaH7DRdK",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "sv_li_account_report",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "sv_li_account_report",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "tSjQ5NPT",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "version_tag",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currency",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_modified_time",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "created_time",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "all_account_reports##KoYmk2Yv" : {
+      "id" : "all_account_reports##KoYmk2Yv",
+      "component" : "SetOperation",
+      "metadata" : {
+        "label" : "all_account_reports",
+        "x" : 420,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "operationType" : "union",
+        "preserveDuplicates" : true,
+        "useMinus" : false,
+        "inputAliases" : [ "cleanup_li", "cleanup_am", "cleanup_go" ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WSlHa3AM",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "cleanup_li"
+        }, {
+          "id" : "uquSmaL0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "cleanup_am"
+        }, {
+          "id" : "zhSCqeZF",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "cleanup_go"
+        } ],
+        "outputs" : [ {
+          "id" : "QVgSN46d",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cost",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sv_go_account_report##LwGgOLoF" : {
+      "id" : "sv_go_account_report##LwGgOLoF",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "sv_go_account_report",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "sv_go_account_report",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "g7dzCEfz",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "TOTAL_CLICKS",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "TOTAL_IMPRESSIONS",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "TOTAL_SPEND",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ad_network_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "device",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "auto_tagging_enabled",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "time_zone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "is_most_recent_record",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "formatted_spend",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "sv_am_account_report##tiWJ5ckc" : {
+      "id" : "sv_am_account_report##tiWJ5ckc",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "sv_am_account_report",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "sv_am_account_report",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "IO0MUXoC",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "profile_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "source_relation",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "currency_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "total_impressions",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_clicks",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "cleanup_li##IpUU1TGM" : {
+      "id" : "cleanup_li##IpUU1TGM",
       "component" : "Reformat",
       "metadata" : {
         "label" : "cleanup_li",
-        "x" : 360,
-        "y" : 180,
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
-        "macroDependencies" : [ ],
-        "comment" : "Cleans up and organizes data from the sv_li_account_report table, including source relation, account ID, clicks, impressions, and cost.",
-        "autoUpdateComment" : true
+        "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "YIE8Tj89##source_relation", "YIE8Tj89##account_id", "YIE8Tj89##clicks", "YIE8Tj89##impressions", "YIE8Tj89##cost" ],
+        "columnsSelector" : [ "lCZCZGxa##source_relation", "lCZCZGxa##account_id", "lCZCZGxa##clicks", "lCZCZGxa##impressions", "lCZCZGxa##cost" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "source_relation"
@@ -53,7 +856,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "YIE8Tj89",
+          "id" : "lCZCZGxa",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -131,7 +934,7 @@
           "slug" : "sv_li_account_report"
         } ],
         "outputs" : [ {
-          "id" : "l8kHJuHI",
+          "id" : "l4MbatSb",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -158,197 +961,6 @@
               "name" : "cost",
               "dataType" : {
                 "type" : "Float"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "gl_all_account_report##yN3KQsRG" : {
-      "id" : "gl_all_account_report##yN3KQsRG",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "gl_all_account_report",
-        "x" : 560,
-        "y" : 180,
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM cleanup_li\n",
-        "isModel" : false,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "erOqF0sv",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "clicks",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "impressions",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "cost",
-              "dataType" : {
-                "type" : "Float"
-              }
-            } ]
-          },
-          "slug" : "cleanup_li"
-        } ],
-        "outputs" : [ {
-          "id" : "BZJU2Ied",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "clicks",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "impressions",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "cost",
-              "dataType" : {
-                "type" : "Float"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "sv_li_account_report##SYCfeu9Z" : {
-      "id" : "sv_li_account_report##SYCfeu9Z",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "sv_li_account_report",
-        "x" : 160,
-        "y" : 180,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "sv_li_account_report",
-          "sourceType" : "Model"
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "WgAQWXvP",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "date_day",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "clicks",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "impressions",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "cost",
-              "dataType" : {
-                "type" : "Double"
-              }
-            }, {
-              "name" : "is_most_recent_record",
-              "dataType" : {
-                "type" : "Boolean"
               }
             } ]
           },
@@ -360,17 +972,47 @@
     }
   },
   "connections" : [ {
-    "id" : "DJBoMR8x",
-    "source" : "sv_li_account_report##SYCfeu9Z",
-    "sourcePort" : "WgAQWXvP",
-    "target" : "cleanup_li##YOwZJi15",
-    "targetPort" : "YIE8Tj89"
+    "id" : "okwVDMA5",
+    "source" : "sv_li_account_report##gaH7DRdK",
+    "sourcePort" : "tSjQ5NPT",
+    "target" : "cleanup_li##IpUU1TGM",
+    "targetPort" : "lCZCZGxa"
   }, {
-    "id" : "QDcGzK_ID5LSUizSJzJ9-$$LbNai6a4ohTEYjhZwP-mi",
-    "source" : "cleanup_li##YOwZJi15",
-    "sourcePort" : "l8kHJuHI",
-    "target" : "gl_all_account_report##yN3KQsRG",
-    "targetPort" : "erOqF0sv"
+    "id" : "eafwi8sk",
+    "source" : "sv_am_account_report##tiWJ5ckc",
+    "sourcePort" : "IO0MUXoC",
+    "target" : "cleanup_am##JfRW5TUk",
+    "targetPort" : "PR3tkDjj"
+  }, {
+    "id" : "S0il4bzP",
+    "source" : "sv_go_account_report##LwGgOLoF",
+    "sourcePort" : "g7dzCEfz",
+    "target" : "cleanup_go##M0nSTZrT",
+    "targetPort" : "jZlJidak"
+  }, {
+    "id" : "qd65fi0N",
+    "source" : "cleanup_li##IpUU1TGM",
+    "sourcePort" : "l4MbatSb",
+    "target" : "all_account_reports##KoYmk2Yv",
+    "targetPort" : "WSlHa3AM"
+  }, {
+    "id" : "QnlrifzC",
+    "source" : "cleanup_am##JfRW5TUk",
+    "sourcePort" : "gSEURdFL",
+    "target" : "all_account_reports##KoYmk2Yv",
+    "targetPort" : "uquSmaL0"
+  }, {
+    "id" : "Esa9zlhe",
+    "source" : "cleanup_go##M0nSTZrT",
+    "sourcePort" : "WlWWP2mz",
+    "target" : "all_account_reports##KoYmk2Yv",
+    "targetPort" : "zhSCqeZF"
+  }, {
+    "id" : "TtuWwU0R",
+    "source" : "all_account_reports##KoYmk2Yv",
+    "sourcePort" : "QVgSN46d",
+    "target" : "gl_all_account_report##YQktI0DL",
+    "targetPort" : "WI9WlAob"
   } ],
   "component" : "Model"
 }
