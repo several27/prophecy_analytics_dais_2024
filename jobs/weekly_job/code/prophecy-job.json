@@ -19,12 +19,15 @@
       "do_xcom_push" : true
     },
     "availableFabrics" : [ {
-      "id" : "137",
-      "name" : "airflow",
-      "trialStartDate" : 1718116777639
+      "id" : "6137",
+      "name" : "airflow-dev",
+      "trialStartDate" : 1697820960221
     }, {
-      "id" : "140",
-      "name" : "airflow-composer"
+      "id" : "7627",
+      "name" : "Composer-qa"
+    }, {
+      "id" : "11350",
+      "name" : "airflow_test"
     } ],
     "maxActiveRuns" : 1,
     "endDate" : "2024-07-02",
