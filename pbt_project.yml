@@ -32,6 +32,7 @@ jobs:
     enabled: false
     createdAt: '2024-06-12 06:40:20'
     author: maciej@prophecy.io
+    models: []
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
@@ -1214,116 +1215,14 @@ sqlSources:
     - name: google_account_history_data
       schema:
         providerType: databricks
-        fields:
-        - name: id
-          dataType:
-            type: Integer
-        - name: updated_at
-          dataType:
-            type: Timestamp
-        - name: _fivetran_synced
-          dataType:
-            type: Timestamp
-        - name: auto_tagging_enabled
-          dataType:
-            type: Boolean
-        - name: currency_code
-          dataType:
-            type: String
-        - name: descriptive_name
-          dataType:
-            type: String
-        - name: final_url_suffix
-          dataType:
-            type: Boolean
-        - name: hidden
-          dataType:
-            type: Boolean
-        - name: manager
-          dataType:
-            type: String
-        - name: manager_customer_id
-          dataType:
-            type: Integer
-        - name: optimization_score
-          dataType:
-            type: Float
-        - name: pay_per_conversion_eligibility_failure_reasons
-          dataType:
-            type: String
-        - name: test_account
-          dataType:
-            type: String
-        - name: time_zone
-          dataType:
-            type: String
-        - name: tracking_url_template
-          dataType:
-            type: String
+        fields: []
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:46:39'
     - name: google_account_stats_data
       schema:
         providerType: databricks
-        fields:
-        - name: _fivetran_id
-          dataType:
-            type: String
-        - name: customer_id
-          dataType:
-            type: Integer
-        - name: date
-          dataType:
-            type: Date
-        - name: _fivetran_synced
-          dataType:
-            type: Timestamp
-        - name: active_view_impressions
-          dataType:
-            type: Integer
-        - name: active_view_measurability
-          dataType:
-            type: Integer
-        - name: active_view_measurable_cost_micros
-          dataType:
-            type: Integer
-        - name: active_view_measurable_impressions
-          dataType:
-            type: Integer
-        - name: active_view_viewability
-          dataType:
-            type: Integer
-        - name: ad_network_type
-          dataType:
-            type: String
-        - name: clicks
-          dataType:
-            type: Integer
-        - name: conversions
-          dataType:
-            type: Integer
-        - name: conversions_value
-          dataType:
-            type: Float
-        - name: cost_micros
-          dataType:
-            type: Integer
-        - name: device
-          dataType:
-            type: String
-        - name: impressions
-          dataType:
-            type: Integer
-        - name: interaction_event_types
-          dataType:
-            type: String
-        - name: interactions
-          dataType:
-            type: Integer
-        - name: view_through_conversions
-          dataType:
-            type: Integer
+        fields: []
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:46:39'
@@ -1338,246 +1237,21 @@ sqlSources:
     - name: linkedin_account_history_data
       schema:
         providerType: databricks
-        fields:
-        - name: id
-          dataType:
-            type: Integer
-        - name: last_modified_time
-          dataType:
-            type: Timestamp
-        - name: created_time
-          dataType:
-            type: Timestamp
-        - name: name
-          dataType:
-            type: String
-        - name: currency
-          dataType:
-            type: String
-        - name: version_tag
-          dataType:
-            type: Integer
+        fields: []
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:40:14'
     - name: linkedin_ad_analytics_by_campaign_data
       schema:
         providerType: databricks
-        fields:
-        - name: campaign_id
-          dataType:
-            type: Integer
-        - name: day
-          dataType:
-            type: Date
-        - name: action_clicks
-          dataType:
-            type: Integer
-        - name: ad_unit_clicks
-          dataType:
-            type: Integer
-        - name: approximate_unique_impressions
-          dataType:
-            type: Integer
-        - name: card_clicks
-          dataType:
-            type: Integer
-        - name: card_impressions
-          dataType:
-            type: Integer
-        - name: clicks
-          dataType:
-            type: Integer
-        - name: comment_likes
-          dataType:
-            type: Integer
-        - name: comments
-          dataType:
-            type: Integer
-        - name: company_page_clicks
-          dataType:
-            type: Integer
-        - name: conversion_value_in_local_currency
-          dataType:
-            type: Float
-        - name: cost_in_local_currency
-          dataType:
-            type: Float
-        - name: cost_in_usd
-          dataType:
-            type: Float
-        - name: external_website_conversions
-          dataType:
-            type: Integer
-        - name: external_website_post_click_conversions
-          dataType:
-            type: Integer
-        - name: external_website_post_view_conversions
-          dataType:
-            type: Integer
-        - name: follows
-          dataType:
-            type: Integer
-        - name: full_screen_plays
-          dataType:
-            type: Integer
-        - name: impressions
-          dataType:
-            type: Integer
-        - name: landing_page_clicks
-          dataType:
-            type: Integer
-        - name: lead_generation_mail_contact_info_shares
-          dataType:
-            type: Integer
-        - name: lead_generation_mail_interested_clicks
-          dataType:
-            type: Integer
-        - name: likes
-          dataType:
-            type: Integer
-        - name: one_click_lead_form_opens
-          dataType:
-            type: Integer
-        - name: one_click_leads
-          dataType:
-            type: Integer
-        - name: opens
-          dataType:
-            type: Integer
-        - name: other_engagements
-          dataType:
-            type: Integer
-        - name: shares
-          dataType:
-            type: Integer
-        - name: text_url_clicks
-          dataType:
-            type: Integer
-        - name: total_engagements
-          dataType:
-            type: Integer
-        - name: video_completions
-          dataType:
-            type: Integer
-        - name: video_first_quartile_completions
-          dataType:
-            type: Integer
-        - name: video_midpoint_completions
-          dataType:
-            type: Integer
-        - name: video_starts
-          dataType:
-            type: Integer
-        - name: video_third_quartile_completions
-          dataType:
-            type: Integer
-        - name: video_views
-          dataType:
-            type: Integer
-        - name: viral_card_clicks
-          dataType:
-            type: Integer
-        - name: viral_card_impressions
-          dataType:
-            type: Integer
-        - name: viral_clicks
-          dataType:
-            type: Integer
-        - name: viral_comment_likes
-          dataType:
-            type: Integer
-        - name: viral_comments
-          dataType:
-            type: Integer
-        - name: viral_company_page_clicks
-          dataType:
-            type: Integer
-        - name: viral_external_website_conversions
-          dataType:
-            type: Integer
-        - name: viral_external_website_post_click_conversions
-          dataType:
-            type: Integer
-        - name: viral_external_website_post_view_conversions
-          dataType:
-            type: Integer
-        - name: viral_follows
-          dataType:
-            type: Integer
-        - name: viral_full_screen_plays
-          dataType:
-            type: Integer
-        - name: viral_impressions
-          dataType:
-            type: Integer
-        - name: viral_landing_page_clicks
-          dataType:
-            type: Integer
-        - name: viral_likes
-          dataType:
-            type: Integer
-        - name: viral_one_click_lead_form_opens
-          dataType:
-            type: Integer
-        - name: viral_one_click_leads
-          dataType:
-            type: Integer
-        - name: viral_other_engagements
-          dataType:
-            type: Integer
-        - name: viral_shares
-          dataType:
-            type: Integer
-        - name: viral_total_engagements
-          dataType:
-            type: Integer
-        - name: viral_video_completions
-          dataType:
-            type: Integer
-        - name: viral_video_first_quartile_completions
-          dataType:
-            type: Integer
-        - name: viral_video_midpoint_completions
-          dataType:
-            type: Integer
-        - name: viral_video_starts
-          dataType:
-            type: Integer
-        - name: viral_video_third_quartile_completions
-          dataType:
-            type: Integer
-        - name: viral_video_views
-          dataType:
-            type: Integer
+        fields: []
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:42:19'
     - name: linkedin_campaign_history_data
       schema:
         providerType: databricks
-        fields:
-        - name: id
-          dataType:
-            type: Integer
-        - name: last_modified_time
-          dataType:
-            type: Timestamp
-        - name: account_id
-          dataType:
-            type: Integer
-        - name: campaign_group_id
-          dataType:
-            type: Integer
-        - name: created_time
-          dataType:
-            type: Timestamp
-        - name: name
-          dataType:
-            type: String
-        - name: version_tag
-          dataType:
-            type: Integer
+        fields: []
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:42:20'
