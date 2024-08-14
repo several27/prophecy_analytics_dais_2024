@@ -627,10 +627,6 @@
     "type" : "Model",
     "syncedOnce" : true
   }, {
-    "name" : "br_am_campaign_level_report",
-    "type" : "Model",
-    "syncedOnce" : true
-  }, {
     "name" : "br_am_profile",
     "type" : "Model",
     "syncedOnce" : true
@@ -661,7 +657,7 @@
   }, {
     "name" : "sv_go_account_report",
     "type" : "Model",
-    "syncedOnce" : false
+    "syncedOnce" : true
   }, {
     "name" : "sv_li_account_report",
     "type" : "Model",

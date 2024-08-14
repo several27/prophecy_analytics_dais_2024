@@ -1,23 +1,34 @@
 from beta_maciej_prophecy_prophecy_analytics_dais_2024_weekly_job.utils import *
 
 def analytics():
-    from airflow.operators.bash import BashOperator
+    from airflow.operators.python import PythonOperator
     from datetime import timedelta
     import os
     import zipfile
     import tempfile
 
-    return BashOperator(
+    return PythonOperator(
         task_id = "analytics",
-        bash_command = " && ".join(
-          ["{} && cd $tmpDir/{}".format(
-             (
-               "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
-               + "{} --branch {} --single-branch $tmpDir".format("", None)
-             ),
-             ""
-           ),            "dbt seed",  "dbt run",  "dbt test"]
-        ),
-        env = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"},
-        append_env = True,
+        python_callable = invoke_dbt_runner,
+        op_kwargs = {
+          "is_adhoc_run_from_same_project": False,
+          "is_prophecy_managed": False,
+          "run_deps": False,
+          "run_seeds": True,
+          "run_parents": False,
+          "run_children": False,
+          "run_tests": True,
+          "run_mode": "project",
+          "entity_kind": None,
+          "entity_name": None,
+          "project_id": "302",
+          "git_entity": "branch",
+          "git_entity_value": None,
+          "git_ssh_url": "",
+          "git_sub_path": "",
+          "select": "",
+          "exclude": "",
+          "run_props": "",
+          "envs": {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
+        },
     )

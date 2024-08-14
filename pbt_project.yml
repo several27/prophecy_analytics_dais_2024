@@ -625,13 +625,13 @@ sqlModels:
       - name: account_id
         dataType:
           type: Integer
-      - name: TOTAL_IMPRESSIONS
-        dataType:
-          type: Bigint
       - name: TOTAL_SPENT
         dataType:
           type: Double
       - name: TOTAL_CLICKS
+        dataType:
+          type: Bigint
+      - name: TOTAL_IMPRESSIONS
         dataType:
           type: Bigint
       - name: date_day
@@ -658,12 +658,6 @@ sqlModels:
       - name: auto_tagging_enabled
         dataType:
           type: Boolean
-      - name: time_zone
-        dataType:
-          type: String
-      - name: is_most_recent_record
-        dataType:
-          type: Boolean
       - name: formatted_spend
         dataType:
           type: String
@@ -672,6 +666,7 @@ sqlModels:
     files:
     - models/silver/google_ads/sv_go_account_report.sql
     - .prophecy/ide/models/sv_go_account_report.json
+    - models/silver/google_ads/schema.yml
     sqlDependencies:
       models: []
       datasets: []

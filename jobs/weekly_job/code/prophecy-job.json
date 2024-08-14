@@ -28,6 +28,9 @@
     }, {
       "id" : "11350",
       "name" : "airflow_test"
+    }, {
+      "id" : "16432",
+      "name" : "prophecyTeamAirflowTesting"
     } ],
     "maxActiveRuns" : 1,
     "endDate" : "2024-07-02",

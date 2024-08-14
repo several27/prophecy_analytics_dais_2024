@@ -1,0 +1,50 @@
+---
+version: 2
+models:
+- name: "sv_go_account_report"
+  columns:
+  - name: "account_id"
+    dataType:
+      type: "Integer"
+  - name: "TOTAL_IMPRESSIONS"
+    dataType:
+      type: "Bigint"
+  - name: "TOTAL_SPENT"
+    dataType:
+      type: "Double"
+  - name: "TOTAL_CLICKS"
+    dataType:
+      type: "Bigint"
+  - name: "date_day"
+    dataType:
+      type: "Date"
+  - name: "ad_network_type"
+    dataType:
+      type: "String"
+  - name: "device"
+    dataType:
+      type: "String"
+  - name: "currency_code"
+    dataType:
+      type: "String"
+  - name: "updated_at"
+    dataType:
+      type: "Timestamp"
+  - name: "source_relation"
+    dataType:
+      type: "String"
+  - name: "account_name"
+    dataType:
+      type: "String"
+  - name: "auto_tagging_enabled"
+    dataType:
+      type: "Boolean"
+  - name: "time_zone"
+    dataType:
+      type: "String"
+  - name: "is_most_recent_record"
+    dataType:
+      type: "Boolean"
+  - name: "formatted_spend"
+    dataType:
+      type: "String"
