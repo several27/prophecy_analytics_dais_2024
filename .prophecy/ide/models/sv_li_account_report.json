@@ -521,7 +521,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM campaign_analytics_summary\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

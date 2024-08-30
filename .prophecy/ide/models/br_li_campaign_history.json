@@ -785,7 +785,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM linkedin_campaign_history\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"

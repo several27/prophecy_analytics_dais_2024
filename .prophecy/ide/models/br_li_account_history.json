@@ -1071,7 +1071,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM linkedin_account_data\n",
-        "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
