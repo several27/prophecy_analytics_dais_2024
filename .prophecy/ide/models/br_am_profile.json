@@ -27,7 +27,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM cleanup\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -37,6 +36,7 @@
         "inputs" : [ {
           "id" : "OFV1SOv1",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -110,6 +110,7 @@
         "outputs" : [ {
           "id" : "uBZo8thw",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -206,6 +207,7 @@
         "outputs" : [ {
           "id" : "fMhjfFdoKDW-A1iyRpOlf",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -366,6 +368,7 @@
         "inputs" : [ {
           "id" : "lXv3qouxF_jRylShucfii$$Ag8lMs7XdXpAXukyhBWgm",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
@@ -439,6 +442,7 @@
         "outputs" : [ {
           "id" : "I_EEfqNVv-IYjvbnQtNNL$$uyA6x_ZrLPdh4MgZPS7Uo",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",

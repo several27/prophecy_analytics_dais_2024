@@ -27,7 +27,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM cleanup\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -37,6 +36,7 @@
         "inputs" : [ {
           "id" : "bQmuOeL6",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -110,6 +110,7 @@
         "outputs" : [ {
           "id" : "vlTzskMI",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -206,6 +207,7 @@
         "outputs" : [ {
           "id" : "gOCUPuUPoYONEQhL9Dfdi",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "campaign_id",
@@ -366,6 +368,7 @@
         "inputs" : [ {
           "id" : "1IBhpaiNoNnEc1eb0Okw9$$NlfZtvE_y95PuVTcEPvd1",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "campaign_id",
@@ -439,6 +442,7 @@
         "outputs" : [ {
           "id" : "y_6rtDYclbno6tf32qOKY$$ZBkvpMERKlu_QrBitq-Ln",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",

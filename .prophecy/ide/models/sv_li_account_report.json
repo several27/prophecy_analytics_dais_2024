@@ -32,6 +32,7 @@
         "outputs" : [ {
           "id" : "EDeSogk5vKYqIgC4O-CHl",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -273,6 +274,7 @@
         "inputs" : [ {
           "id" : "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "campaign_id",
@@ -351,6 +353,7 @@
         "outputs" : [ {
           "id" : "W5mFh_k5aYXR8cYxrQvUR$$Z8lfVKRpQjoTHIJg16VEP",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -452,6 +455,7 @@
         "outputs" : [ {
           "id" : "PQ4f0KtIwAS_4lluE2fgZ",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -521,7 +525,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM campaign_analytics_summary\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -531,6 +534,7 @@
         "inputs" : [ {
           "id" : "l6PVqe7W",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -609,6 +613,7 @@
         "outputs" : [ {
           "id" : "ANCD4D0R",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -673,7 +678,7 @@
             }, {
               "name" : "cost",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "is_most_recent_record",
@@ -795,6 +800,7 @@
         "inputs" : [ {
           "id" : "JvGsSAV62YYMo7NJ2PRPg$$IlmUjjrmYiVOUH7Mq5H3K",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -832,6 +838,7 @@
         }, {
           "id" : "bCSdysYzb1ve4JYK9GR6H$$kmJW3N3BdzI0VCR7EHRCw",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -969,6 +976,7 @@
         }, {
           "id" : "CcpiyOixSzp4v1yRJ-6ug",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1022,6 +1030,7 @@
         "outputs" : [ {
           "id" : "w989Od_b77Q1XVnbGrVx4$$5LUQFPm_o7mWfgoWHwDIy",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "campaign_id",
@@ -1123,6 +1132,7 @@
         "outputs" : [ {
           "id" : "fmDZDZEYXmH_gBt4jsCtC",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",

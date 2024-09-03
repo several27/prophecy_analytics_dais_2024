@@ -1,0 +1,26 @@
+---
+version: 2
+models:
+- name: "sv_go_account_report"
+  columns:
+  - name: "account_id"
+    dataType:
+      type: "Integer"
+  - name: "TOTAL_CLICKS"
+    dataType:
+      type: "Bigint"
+  - name: "TOTAL_IMPRESSIONS"
+    dataType:
+      type: "Bigint"
+  - name: "TOTAL_SPEND"
+    dataType:
+      type: "Float"
+  - name: "date_day"
+    dataType:
+      type: "Date"
+  - name: "ad_network_type"
+    dataType:
+      type: "String"
+  - name: "source_relation"
+    dataType:
+      type: "String"

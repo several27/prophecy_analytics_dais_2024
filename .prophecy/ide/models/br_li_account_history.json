@@ -1071,7 +1071,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM linkedin_account_data\n",
-        "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -1081,6 +1080,7 @@
         "inputs" : [ {
           "id" : "UpG0AlDe",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1134,6 +1134,7 @@
         "outputs" : [ {
           "id" : "lyLXZY4Q",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1253,6 +1254,7 @@
         "inputs" : [ {
           "id" : "c9J4a9xL",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "id",
@@ -1291,6 +1293,7 @@
         "outputs" : [ {
           "id" : "P0ZZ4uuP",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1368,6 +1371,7 @@
         "outputs" : [ {
           "id" : "nTiMZEuH8eus2o-fFD-IX",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "id",
