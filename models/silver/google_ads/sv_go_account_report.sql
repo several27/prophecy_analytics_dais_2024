@@ -39,18 +39,15 @@ by_account_id_source_relation AS (
 
 ),
 
-account_performance_summary AS (
+total_spend_by_account AS (
 
-  {#Summarizes account performance metrics, including clicks, impressions, and spending.#}
+  {#Calculates total spending per account while capturing the most recent record details.#}
   SELECT 
     account_id,
-    SUM(clicks) AS TOTAL_CLICKS,
-    SUM(impressions) AS TOTAL_IMPRESSIONS,
     SUM(spend) AS TOTAL_SPEND,
-    any_value(date_day) AS date_day,
-    any_value(ad_network_type) AS ad_network_type,
-    any_value(source_relation) AS source_relation,
-    any_value(currency_code) AS currency_code
+    any_value(is_most_recent_record) AS is_most_recent_record,
+    any_value(currency_code) AS currency_code,
+    any_value(updated_at) AS updated_at
   
   FROM by_account_id_source_relation
   
@@ -58,20 +55,18 @@ account_performance_summary AS (
 
 ),
 
-account_performance_summary_1 AS (
+total_spend_details AS (
 
-  {#Summarizes key performance metrics for advertising accounts.#}
+  {#Summarizes total spending details for accounts, including formatted currency representation.#}
   SELECT 
     account_id AS account_id,
-    TOTAL_CLICKS AS TOTAL_CLICKS,
-    TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
     TOTAL_SPEND AS TOTAL_SPEND,
-    date_day AS date_day,
-    ad_network_type AS ad_network_type,
-    source_relation AS source_relation,
-    currency_code AS currency_code
+    is_most_recent_record AS is_most_recent_record,
+    currency_code AS currency_code,
+    updated_at AS updated_at,
+    CONCAT(TOTAL_SPEND, ' ', currency_code) AS pretty_spend
   
-  FROM account_performance_summary
+  FROM total_spend_by_account
 
 ),
 
@@ -79,7 +74,7 @@ limit_100 AS (
 
   SELECT * 
   
-  FROM account_performance_summary_1
+  FROM total_spend_details
   
   LIMIT 100
 
