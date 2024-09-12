@@ -39,15 +39,17 @@ by_account_id_source_relation AS (
 
 ),
 
-total_spend_by_account AS (
+account_performance_summary AS (
 
-  {#Calculates total spending per account while capturing the most recent record details.#}
+  {#Summarizes account performance metrics including clicks, impressions, and spending.#}
   SELECT 
     account_id,
+    SUM(clicks) AS TOTAL_CLICKS,
+    SUM(impressions) AS TOTAL_IMPRESSIONS,
     SUM(spend) AS TOTAL_SPEND,
-    any_value(is_most_recent_record) AS is_most_recent_record,
     any_value(currency_code) AS currency_code,
-    any_value(updated_at) AS updated_at
+    any_value(updated_at) AS updated_at,
+    any_value(source_relation) AS source_relation
   
   FROM by_account_id_source_relation
   
@@ -55,18 +57,17 @@ total_spend_by_account AS (
 
 ),
 
-total_spend_details AS (
+account_performance_summary_1 AS (
 
-  {#Summarizes total spending details for accounts, including formatted currency representation.#}
+  {#Summarizes key performance metrics for each account, including clicks, impressions, and spending.#}
   SELECT 
     account_id AS account_id,
+    TOTAL_CLICKS AS TOTAL_CLICKS,
+    TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
     TOTAL_SPEND AS TOTAL_SPEND,
-    is_most_recent_record AS is_most_recent_record,
-    currency_code AS currency_code,
-    updated_at AS updated_at,
-    CONCAT(TOTAL_SPEND, ' ', currency_code) AS pretty_spend
+    currency_code AS currency_code
   
-  FROM total_spend_by_account
+  FROM account_performance_summary
 
 ),
 
@@ -74,7 +75,7 @@ limit_100 AS (
 
   SELECT * 
   
-  FROM total_spend_details
+  FROM account_performance_summary_1
   
   LIMIT 100
 

@@ -644,6 +644,10 @@
     "type" : "Model",
     "syncedOnce" : true
   }, {
+    "name" : "br_go_ad_history",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
     "name" : "br_li_account_history",
     "type" : "Model",
     "syncedOnce" : false
