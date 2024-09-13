@@ -16,7 +16,7 @@
       "metadata" : {
         "label" : "br_go_ad_history",
         "x" : 500,
-        "y" : 0,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ],
         "comment" : "Creates a new table 'br_go_ad_history' by selecting all records from 'Reformat_1'.",
@@ -225,14 +225,14 @@
         "autoUpdateOnRun" : false
       }
     },
-    "x4AWnFzJwk8jpTZ4ZPr95" : {
-      "id" : "x4AWnFzJwk8jpTZ4ZPr95",
+    "bpWTv4MMV4yYwRjv-xcFz" : {
+      "id" : "bpWTv4MMV4yYwRjv-xcFz",
       "component" : "Seed",
       "metadata" : {
         "label" : "dt_go_ad_history",
         "slug" : "dt_go_ad_history",
-        "x" : 80,
-        "y" : 0,
+        "x" : 40,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -245,7 +245,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "pjS7V5L3FenM8ZGNZoz6T",
+          "id" : "8q4yzVPcnB4jnLQM5A4P6",
           "schema" : {
             "entityType" : "",
             "providerType" : "Databricks",
@@ -297,21 +297,21 @@
         "autoUpdateOnRun" : false
       }
     },
-    "imOLQNSKNDn6P4fyunZSv$$bfcUZbgOpLEACim9eHdxI" : {
-      "id" : "imOLQNSKNDn6P4fyunZSv$$bfcUZbgOpLEACim9eHdxI",
+    "lNCyAbaxCbucgY7oGRdPw$$LOqG8O5OLInudsT1RdCBW" : {
+      "id" : "lNCyAbaxCbucgY7oGRdPw$$LOqG8O5OLInudsT1RdCBW",
       "component" : "Reformat",
       "metadata" : {
         "label" : "Reformat_1",
         "slug" : "Reformat_1",
-        "x" : 280,
-        "y" : 0,
+        "x" : 300,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ],
-        "comment" : "Reformats ad data to extract and organize various URL components and ad attributes for better analysis.",
+        "comment" : "Reformats ad history data to extract key URL components and advertising details for better analysis.",
         "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##type", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##ad_group_id", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##id", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##updated_at", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##display_url", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##status", "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv##final_urls" ],
+        "columnsSelector" : [ "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##type", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##ad_group_id", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##id", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##updated_at", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##display_url", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##status", "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh##final_urls" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CASE\n  WHEN NOT type IS NULL\n    THEN type\n  ELSE ''\nEND"
@@ -364,7 +364,7 @@
           "alias" : "base_url"
         }, {
           "expression" : {
-            "expression" : "REGEXP_EXTRACT(final_urls, '^(https?://)?([^/]+)', 2)"
+            "expression" : "SUBSTRING_INDEX(final_urls, '/', 3)"
           },
           "alias" : "url_host"
         }, {
@@ -384,7 +384,7 @@
           "alias" : "utm_medium"
         }, {
           "expression" : {
-            "expression" : "REGEXP_EXTRACT(final_urls, 'utm_campaign=([^&]+)', 1)"
+            "expression" : "SUBSTRING_INDEX(final_urls, 'utm_campaign=', -1)"
           },
           "alias" : "utm_campaign"
         }, {
@@ -394,14 +394,14 @@
           "alias" : "utm_content"
         }, {
           "expression" : {
-            "expression" : "SUBSTRING_INDEX(final_urls, 'utm_term=', -1)"
+            "expression" : "REGEXP_EXTRACT(final_urls, 'utm_term=([^&]+)', 1)"
           },
           "alias" : "utm_term"
         } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv",
+          "id" : "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh",
           "schema" : {
             "entityType" : "",
             "providerType" : "Databricks",
@@ -447,10 +447,10 @@
               }
             } ]
           },
-          "slug" : "in0"
+          "slug" : "dt_go_ad_history"
         } ],
         "outputs" : [ {
-          "id" : "H8LgmO1XMUj9jWcwOP1T8$$rayJd-h4JYAhafuk4ydfx",
+          "id" : "xkfLQkEy1y08P5finTB4Q$$t73n5F8di3dGV-OI7kuBg",
           "schema" : {
             "entityType" : "",
             "providerType" : "Databricks",
@@ -549,17 +549,17 @@
     }
   },
   "connections" : [ {
-    "id" : "ZXpDBMfswbu_pQD5r4-op$$wCsfglfMKfEvXZFojbQZN",
-    "source" : "imOLQNSKNDn6P4fyunZSv$$bfcUZbgOpLEACim9eHdxI",
-    "sourcePort" : "H8LgmO1XMUj9jWcwOP1T8$$rayJd-h4JYAhafuk4ydfx",
+    "id" : "jHnBSuJJdbGLCvU3nedBL$$93ZQQhjJLNmHia0Q5sPKZ",
+    "source" : "bpWTv4MMV4yYwRjv-xcFz",
+    "sourcePort" : "8q4yzVPcnB4jnLQM5A4P6",
+    "target" : "lNCyAbaxCbucgY7oGRdPw$$LOqG8O5OLInudsT1RdCBW",
+    "targetPort" : "FEOuMkHtkhxqpewDRYVo8$$B09ssOyuJVjMmVyTLcoGh"
+  }, {
+    "id" : "xKeZoXgRufeMlDaI9qfmV$$rvoYWAHRopqOr2MlrQXCA",
+    "source" : "lNCyAbaxCbucgY7oGRdPw$$LOqG8O5OLInudsT1RdCBW",
+    "sourcePort" : "xkfLQkEy1y08P5finTB4Q$$t73n5F8di3dGV-OI7kuBg",
     "target" : "br_go_ad_history##d9iHlBgI",
     "targetPort" : "v5fNKrgw"
-  }, {
-    "id" : "BsWYNqTcZjkKGCdu5GQ8v$$oTZ-172lTd5MdQ_2sSnWI",
-    "source" : "x4AWnFzJwk8jpTZ4ZPr95",
-    "sourcePort" : "pjS7V5L3FenM8ZGNZoz6T",
-    "target" : "imOLQNSKNDn6P4fyunZSv$$bfcUZbgOpLEACim9eHdxI",
-    "targetPort" : "qPEZzfk1PW0XZe6ysXtM4$$8SFe_EDjX3S41YLgkwfIv"
   } ],
   "component" : "Model"
 }

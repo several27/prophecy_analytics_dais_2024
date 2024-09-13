@@ -1,0 +1,32 @@
+---
+version: 2
+models:
+- name: "sv_am_account_report"
+  columns:
+  - name: "profile_id"
+    dataType:
+      type: "Integer"
+  - name: "source_relation"
+    dataType:
+      type: "String"
+  - name: "account_name"
+    dataType:
+      type: "String"
+  - name: "account_id"
+    dataType:
+      type: "String"
+  - name: "date_day"
+    dataType:
+      type: "Integer"
+  - name: "currency_code"
+    dataType:
+      type: "String"
+  - name: "total_cost"
+    dataType:
+      type: "Float"
+  - name: "total_clicks"
+    dataType:
+      type: "Bigint"
+  - name: "total_impressions"
+    dataType:
+      type: "Float"

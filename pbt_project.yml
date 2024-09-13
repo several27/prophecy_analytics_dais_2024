@@ -557,6 +557,7 @@ sqlModels:
     files:
     - models/gold/all/gl_all_account_report.sql
     - .prophecy/ide/models/gl_all_account_report.json
+    - models/gold/all/schema.yml
     sqlDependencies:
       models: []
       datasets: []
@@ -669,12 +670,43 @@ sqlModels:
     createdAt: '2024-06-11 03:42:29'
   .prophecy/metadata/sqlmodels/sv_am_account_report:
     name: sv_am_account_report
-    schema: null
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: profile_id
+        dataType:
+          type: Integer
+      - name: source_relation
+        dataType:
+          type: String
+      - name: account_name
+        dataType:
+          type: String
+      - name: account_id
+        dataType:
+          type: String
+      - name: date_day
+        dataType:
+          type: Integer
+      - name: currency_code
+        dataType:
+          type: String
+      - name: total_cost
+        dataType:
+          type: Float
+      - name: total_clicks
+        dataType:
+          type: Bigint
+      - name: total_impressions
+        dataType:
+          type: Float
     description: null
     author: maciej@prophecy.io
     files:
     - models/silver/amazon/sv_am_account_report.sql
     - .prophecy/ide/models/sv_am_account_report.json
+    - models/silver/amazon/schema.yml
     sqlDependencies:
       models: []
       datasets: []
@@ -700,7 +732,25 @@ sqlModels:
       - name: TOTAL_SPEND
         dataType:
           type: Float
+      - name: is_most_recent_record
+        dataType:
+          type: Boolean
+      - name: time_zone
+        dataType:
+          type: String
       - name: currency_code
+        dataType:
+          type: String
+      - name: updated_at
+        dataType:
+          type: Timestamp
+      - name: source_relation
+        dataType:
+          type: String
+      - name: account_name
+        dataType:
+          type: String
+      - name: ad_network_type
         dataType:
           type: String
     description: null

@@ -1,16 +1,16 @@
-WITH br_go_account_history AS (
-
-  SELECT * 
-  
-  FROM {{ ref('br_go_account_history')}}
-
-),
-
-br_go_account_stats AS (
+WITH br_go_account_stats AS (
 
   SELECT * 
   
   FROM {{ ref('br_go_account_stats')}}
+
+),
+
+br_go_account_history AS (
+
+  SELECT * 
+  
+  FROM {{ ref('br_go_account_history')}}
 
 ),
 
@@ -41,15 +41,19 @@ by_account_id_source_relation AS (
 
 account_performance_summary AS (
 
-  {#Summarizes account performance metrics including clicks, impressions, and spending.#}
+  {#Summarizes account performance metrics, including clicks, impressions, and spend, to assess advertising effectiveness.#}
   SELECT 
     account_id,
     SUM(clicks) AS TOTAL_CLICKS,
     SUM(impressions) AS TOTAL_IMPRESSIONS,
     SUM(spend) AS TOTAL_SPEND,
+    any_value(is_most_recent_record) AS is_most_recent_record,
+    any_value(time_zone) AS time_zone,
     any_value(currency_code) AS currency_code,
     any_value(updated_at) AS updated_at,
-    any_value(source_relation) AS source_relation
+    any_value(source_relation) AS source_relation,
+    any_value(account_name) AS account_name,
+    any_value(ad_network_type) AS ad_network_type
   
   FROM by_account_id_source_relation
   
@@ -59,13 +63,19 @@ account_performance_summary AS (
 
 account_performance_summary_1 AS (
 
-  {#Summarizes key performance metrics for each account, including clicks, impressions, and spending.#}
+  {#Summarizes key performance metrics for accounts, aiding in performance evaluation and strategy development.#}
   SELECT 
     account_id AS account_id,
     TOTAL_CLICKS AS TOTAL_CLICKS,
     TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
     TOTAL_SPEND AS TOTAL_SPEND,
-    currency_code AS currency_code
+    is_most_recent_record AS is_most_recent_record,
+    time_zone AS time_zone,
+    currency_code AS currency_code,
+    updated_at AS updated_at,
+    source_relation AS source_relation,
+    account_name AS account_name,
+    ad_network_type AS ad_network_type
   
   FROM account_performance_summary
 
