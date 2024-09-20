@@ -27,7 +27,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM cleanup\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -37,6 +36,7 @@
         "inputs" : [ {
           "id" : "T1K5TAjH",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -85,6 +85,7 @@
         "outputs" : [ {
           "id" : "XfEKY1bv",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -119,7 +120,7 @@
             }, {
               "name" : "spend",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Float"
               }
             }, {
               "name" : "impressions",
@@ -195,6 +196,7 @@
         "inputs" : [ {
           "id" : "dmwxSs3d_YTtZpjxO-V8z$$p5DSw8QK40tyZ7vutpRBx",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "_fivetran_id",
@@ -298,6 +300,7 @@
         "outputs" : [ {
           "id" : "zJIuMT6pmoH_bWCcZ6TTX$$sKPafsBD3uoYscSieRL0k",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -370,6 +373,7 @@
         "outputs" : [ {
           "id" : "yoTYdm5ZOPyas1XfBnj2i",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "_fivetran_id",

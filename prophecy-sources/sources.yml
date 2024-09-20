@@ -350,3 +350,41 @@ sources:
     - name: "view_through_conversions"
       dataType:
         type: "Integer"
+- name: "main.maciej"
+  database: "main"
+  schema: "maciej"
+  config:
+    enabled: true
+  tables:
+  - name: "opps"
+    description: "Opportunity data capturing sales amounts, stages, and project details,\
+      \ aiding in sales tracking and forecasting."
+    columns:
+    - name: "CompanEXTID"
+      description: "External ID associated with the company"
+      dataType:
+        type: "Integer"
+    - name: "Amount"
+      description: "The total monetary value associated with the opportunity"
+      dataType:
+        type: "String"
+    - name: "Project_Name"
+      description: "Name of the project associated with the opportunity"
+      dataType:
+        type: "String"
+    - name: "Oppurtunity_Name"
+      description: "The name of the opportunity associated with the project"
+      dataType:
+        type: "String"
+    - name: "Stage"
+      description: "Current stage of the opportunity in the sales process"
+      dataType:
+        type: "String"
+    - name: "Close_Date"
+      description: "The date when the opportunity is expected to close."
+      dataType:
+        type: "Date"
+    - name: "_rescued_data"
+      description: "Data that has been recovered or salvaged from previous records."
+      dataType:
+        type: "String"

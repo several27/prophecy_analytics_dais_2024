@@ -785,7 +785,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM linkedin_campaign_history\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -795,6 +794,7 @@
         "inputs" : [ {
           "id" : "y7aca88J",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -933,6 +933,7 @@
         "outputs" : [ {
           "id" : "TWZtijH9",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1223,6 +1224,7 @@
         "inputs" : [ {
           "id" : "oDlFdsgtJ1Ubq8W5NoVEP$$hVoPERDo-gwz9X9hwLu0k",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "id",
@@ -1266,6 +1268,7 @@
         "outputs" : [ {
           "id" : "VuMJv0Z6HHc8j1QsYUYq0$$lY6w3oNPKVZvImowGBA4C",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "source_relation",
@@ -1428,6 +1431,7 @@
         "outputs" : [ {
           "id" : "zAG1JIo3eEftijwZqtIzT",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "id",
