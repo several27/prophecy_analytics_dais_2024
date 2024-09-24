@@ -723,21 +723,18 @@ sqlModels:
       - name: account_id
         dataType:
           type: Integer
-      - name: TOTAL_CLICKS
+      - name: TOTAL_SPENT
         dataType:
-          type: Bigint
+          type: Float
       - name: TOTAL_IMPRESSIONS
         dataType:
           type: Bigint
-      - name: TOTAL_SPEND
+      - name: TOTAL_CLICKS
         dataType:
-          type: Float
-      - name: is_most_recent_record
+          type: Bigint
+      - name: date_day
         dataType:
-          type: Boolean
-      - name: time_zone
-        dataType:
-          type: String
+          type: Date
       - name: currency_code
         dataType:
           type: String
@@ -750,7 +747,7 @@ sqlModels:
       - name: account_name
         dataType:
           type: String
-      - name: ad_network_type
+      - name: pretty_spent
         dataType:
           type: String
     description: null

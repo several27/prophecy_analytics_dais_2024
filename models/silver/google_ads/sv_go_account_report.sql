@@ -1,16 +1,16 @@
-WITH br_go_account_stats AS (
-
-  SELECT * 
-  
-  FROM {{ ref('br_go_account_stats')}}
-
-),
-
-br_go_account_history AS (
+WITH br_go_account_history AS (
 
   SELECT * 
   
   FROM {{ ref('br_go_account_history')}}
+
+),
+
+br_go_account_stats AS (
+
+  SELECT * 
+  
+  FROM {{ ref('br_go_account_stats')}}
 
 ),
 
@@ -41,19 +41,17 @@ by_account_id_source_relation AS (
 
 account_performance_summary AS (
 
-  {#Summarizes account performance metrics, including clicks, impressions, and spend, to assess advertising effectiveness.#}
+  {#Summarizes account performance metrics, including total spending, impressions, and clicks.#}
   SELECT 
     account_id,
-    SUM(clicks) AS TOTAL_CLICKS,
+    SUM(spend) AS TOTAL_SPENT,
     SUM(impressions) AS TOTAL_IMPRESSIONS,
-    SUM(spend) AS TOTAL_SPEND,
-    any_value(is_most_recent_record) AS is_most_recent_record,
-    any_value(time_zone) AS time_zone,
+    SUM(clicks) AS TOTAL_CLICKS,
+    any_value(date_day) AS date_day,
     any_value(currency_code) AS currency_code,
     any_value(updated_at) AS updated_at,
     any_value(source_relation) AS source_relation,
-    any_value(account_name) AS account_name,
-    any_value(ad_network_type) AS ad_network_type
+    any_value(account_name) AS account_name
   
   FROM by_account_id_source_relation
   
@@ -63,19 +61,18 @@ account_performance_summary AS (
 
 account_performance_summary_1 AS (
 
-  {#Summarizes key performance metrics for accounts, aiding in performance evaluation and strategy development.#}
+  {#Summarizes account performance metrics, including spending, impressions, and clicks, for better financial insights.#}
   SELECT 
     account_id AS account_id,
-    TOTAL_CLICKS AS TOTAL_CLICKS,
+    TOTAL_SPENT AS TOTAL_SPENT,
     TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
-    TOTAL_SPEND AS TOTAL_SPEND,
-    is_most_recent_record AS is_most_recent_record,
-    time_zone AS time_zone,
+    TOTAL_CLICKS AS TOTAL_CLICKS,
+    date_day AS date_day,
     currency_code AS currency_code,
     updated_at AS updated_at,
     source_relation AS source_relation,
     account_name AS account_name,
-    ad_network_type AS ad_network_type
+    CONCAT(TOTAL_SPENT, ' ', currency_code) AS pretty_spent
   
   FROM account_performance_summary
 
