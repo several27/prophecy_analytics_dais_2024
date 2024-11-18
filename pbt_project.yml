@@ -33,6 +33,7 @@ jobs:
     createdAt: '2024-06-12 06:40:20'
     author: maciej@prophecy.io
     models: []
+    sqlProjects: []
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
@@ -51,6 +52,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_li_ad_analytics_by_campaign:
     name: br_li_ad_analytics_by_campaign
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -88,6 +90,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_am_profile:
     name: br_am_profile
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -147,6 +150,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/sv_li_account_report:
     name: sv_li_account_report
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -222,6 +226,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_go_account_history:
     name: br_go_account_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -263,6 +268,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_li_account_history:
     name: br_li_account_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -307,6 +313,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_li_campaign_history:
     name: br_li_campaign_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -403,6 +410,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_am_campaign_history:
     name: br_am_campaign_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -472,6 +480,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/gl_all_account_report:
     name: gl_all_account_report
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -504,6 +513,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_go_account_stats:
     name: br_go_account_stats
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -547,6 +557,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/br_am_campaign_level_report:
     name: br_am_campaign_level_report
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: source_relation
@@ -639,6 +650,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_li_campaign_history:
     name: dt_li_campaign_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -670,6 +682,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_am_profile:
     name: dt_am_profile
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -719,6 +732,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_go_account_history:
     name: dt_go_account_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -774,6 +788,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_go_ad_history:
     name: dt_go_ad_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: ad_group_id
@@ -808,6 +823,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_go_account_stats:
     name: dt_go_account_stats
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: _fivetran_id
@@ -875,6 +891,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_li_ad_analytics_by_campaign:
     name: dt_li_ad_analytics_by_campaign
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: campaign_id
@@ -1071,6 +1088,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_am_campaign_history:
     name: dt_am_campaign_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -1129,6 +1147,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_am_campaign_level_report:
     name: dt_am_campaign_level_report
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: campaign_id
@@ -1178,6 +1197,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/dt_li_account_history:
     name: dt_li_account_history
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: id
@@ -1214,6 +1234,7 @@ sqlSources:
     tables:
     - name: google_account_history_data
       schema:
+        entityType: ''
         providerType: databricks
         fields: []
       description: null
@@ -1221,6 +1242,7 @@ sqlSources:
       createdAt: '2024-06-10 19:46:39'
     - name: google_account_stats_data
       schema:
+        entityType: ''
         providerType: databricks
         fields: []
       description: null
@@ -1236,6 +1258,7 @@ sqlSources:
     tables:
     - name: linkedin_account_history_data
       schema:
+        entityType: ''
         providerType: databricks
         fields: []
       description: null
@@ -1243,6 +1266,7 @@ sqlSources:
       createdAt: '2024-06-10 19:40:14'
     - name: linkedin_ad_analytics_by_campaign_data
       schema:
+        entityType: ''
         providerType: databricks
         fields: []
       description: null
@@ -1250,6 +1274,7 @@ sqlSources:
       createdAt: '2024-06-10 19:42:19'
     - name: linkedin_campaign_history_data
       schema:
+        entityType: ''
         providerType: databricks
         fields: []
       description: null
