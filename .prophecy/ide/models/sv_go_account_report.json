@@ -15,22 +15,21 @@
     "version" : 3
   },
   "processes" : {
-    "sv_go_account_report##tGtm8BZt" : {
-      "id" : "sv_go_account_report##tGtm8BZt",
+    "final##XVr0DjUQ" : {
+      "id" : "final##XVr0DjUQ",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "sv_go_account_report",
-        "x" : 820,
+        "x" : 1020,
         "y" : 120,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "isLabelGrayed" : false
       },
       "properties" : {
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM limit_100\n",
-        "isModel" : false,
+        "query" : "SELECT *\n\nFROM limit_100\n",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -38,18 +37,413 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "eAzWYsp4",
+          "id" : "n0kh8nFs",
           "slug" : "limit_100"
         } ],
         "outputs" : [ {
-          "id" : "OMSwxKGp",
+          "id" : "BApCPXGk",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      }
+      },
+      "index" : 6
+    },
+    "by_account_id_so##I4aGivSQ" : {
+      "id" : "by_account_id_so##I4aGivSQ",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_account_id_source_relation",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "br_go_account_stats",
+          "expression" : {
+            "expression" : "br_go_account_stats.account_id = br_go_account_history.account_id\nAND br_go_account_stats.source_relation = br_go_account_history.source_relation"
+          },
+          "joinType" : "INNER"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "br_go_account_stats.date_day"
+          },
+          "alias" : "date_day"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_stats.ad_network_type"
+          },
+          "alias" : "ad_network_type"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_stats.device"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_stats.clicks"
+          },
+          "alias" : "clicks"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_stats.spend"
+          },
+          "alias" : "spend"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_stats.impressions"
+          },
+          "alias" : "impressions"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.currency_code"
+          },
+          "alias" : "currency_code"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.updated_at"
+          },
+          "alias" : "updated_at"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.account_id"
+          },
+          "alias" : "account_id"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.source_relation"
+          },
+          "alias" : "source_relation"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.account_name"
+          },
+          "alias" : "account_name"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.auto_tagging_enabled"
+          },
+          "alias" : "auto_tagging_enabled"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.time_zone"
+          },
+          "alias" : "time_zone"
+        }, {
+          "expression" : {
+            "expression" : "br_go_account_history.is_most_recent_record"
+          },
+          "alias" : "is_most_recent_record"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "br_go_account_history"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "f3etSO0a",
+          "slug" : "br_go_account_history"
+        }, {
+          "id" : "n1RbyFHH",
+          "slug" : "br_go_account_stats"
+        } ],
+        "outputs" : [ {
+          "id" : "D2xHiqwO",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 2
+    },
+    "br_go_account_hi##HFSlXiEU" : {
+      "id" : "br_go_account_hi##HFSlXiEU",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "br_go_account_history",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "table" : {
+          "name" : "br_go_account_history",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "VshbeVAB",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 0
+    },
+    "account_performa##pLR6OWA3" : {
+      "id" : "account_performa##pLR6OWA3",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "account_performance_summary_1",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Summarizes account performance metrics, including clicks, impressions, and spending, while formatting the spend amount for better readability.",
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          },
+          "alias" : "account_id"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_CLICKS"
+          },
+          "alias" : "TOTAL_CLICKS"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_IMPRESSIONS"
+          },
+          "alias" : "TOTAL_IMPRESSIONS"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_SPEND"
+          },
+          "alias" : "TOTAL_SPEND"
+        }, {
+          "expression" : {
+            "expression" : "date_day"
+          },
+          "alias" : "date_day"
+        }, {
+          "expression" : {
+            "expression" : "ad_network_type"
+          },
+          "alias" : "ad_network_type"
+        }, {
+          "expression" : {
+            "expression" : "device"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "currency_code"
+          },
+          "alias" : "currency_code"
+        }, {
+          "expression" : {
+            "expression" : "updated_at"
+          },
+          "alias" : "updated_at"
+        }, {
+          "expression" : {
+            "expression" : "CONCAT(\n  CASE currency_code\n    WHEN 'USD'\n      THEN '$'\n    WHEN 'GBP'\n      THEN '£'\n    WHEN 'EUR'\n      THEN '€'\n    ELSE ''\n  END, \n  FORMAT_NUMBER(TOTAL_SPEND, 2))"
+          },
+          "alias" : "pretty_spend"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "S7Ej4chC",
+          "slug" : "account_performance_summary"
+        } ],
+        "outputs" : [ {
+          "id" : "SdpNYDyP",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 4
+    },
+    "limit_100##phvW5bdL" : {
+      "id" : "limit_100##phvW5bdL",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_100",
+        "x" : 820,
+        "y" : 120,
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "limit" : {
+          "expression" : "100"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "VmIZmfhe",
+          "slug" : "account_performance_summary_1"
+        } ],
+        "outputs" : [ {
+          "id" : "hQD7Y3ic",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 5
+    },
+    "br_go_account_st##rwh5uygF" : {
+      "id" : "br_go_account_st##rwh5uygF",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "br_go_account_stats",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "table" : {
+          "name" : "br_go_account_stats",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "yNyKgbZt",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 1
+    },
+    "account_performa##MF0wsfR7" : {
+      "id" : "account_performa##MF0wsfR7",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "account_performance_summary",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Summarizes advertising performance metrics for each account, including clicks, impressions, and spend.",
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "SUM(clicks)"
+          },
+          "alias" : "TOTAL_CLICKS"
+        }, {
+          "expression" : {
+            "expression" : "SUM(impressions)"
+          },
+          "alias" : "TOTAL_IMPRESSIONS"
+        }, {
+          "expression" : {
+            "expression" : "SUM(spend)"
+          },
+          "alias" : "TOTAL_SPEND"
+        }, {
+          "expression" : {
+            "expression" : "any_value(date_day)"
+          },
+          "alias" : "date_day"
+        }, {
+          "expression" : {
+            "expression" : "any_value(ad_network_type)"
+          },
+          "alias" : "ad_network_type"
+        }, {
+          "expression" : {
+            "expression" : "any_value(device)"
+          },
+          "alias" : "device"
+        }, {
+          "expression" : {
+            "expression" : "any_value(currency_code)"
+          },
+          "alias" : "currency_code"
+        }, {
+          "expression" : {
+            "expression" : "any_value(updated_at)"
+          },
+          "alias" : "updated_at"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ytfE6F9O",
+          "slug" : "by_account_id_source_relation"
+        } ],
+        "outputs" : [ {
+          "id" : "t6RoEnnN",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 3
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "pvICwTy0",
+    "source" : "br_go_account_hi##HFSlXiEU",
+    "sourcePort" : "VshbeVAB",
+    "target" : "by_account_id_so##I4aGivSQ",
+    "targetPort" : "f3etSO0a"
+  }, {
+    "id" : "sSKdeNmH",
+    "source" : "br_go_account_st##rwh5uygF",
+    "sourcePort" : "yNyKgbZt",
+    "target" : "by_account_id_so##I4aGivSQ",
+    "targetPort" : "n1RbyFHH"
+  }, {
+    "id" : "JnwADDSm",
+    "source" : "by_account_id_so##I4aGivSQ",
+    "sourcePort" : "D2xHiqwO",
+    "target" : "account_performa##MF0wsfR7",
+    "targetPort" : "ytfE6F9O"
+  }, {
+    "id" : "qKmK8llS",
+    "source" : "account_performa##MF0wsfR7",
+    "sourcePort" : "t6RoEnnN",
+    "target" : "account_performa##pLR6OWA3",
+    "targetPort" : "S7Ej4chC"
+  }, {
+    "id" : "bUDEkzKF",
+    "source" : "account_performa##pLR6OWA3",
+    "sourcePort" : "SdpNYDyP",
+    "target" : "limit_100##phvW5bdL",
+    "targetPort" : "VmIZmfhe"
+  }, {
+    "id" : "tRKkqwKF",
+    "source" : "limit_100##phvW5bdL",
+    "sourcePort" : "hQD7Y3ic",
+    "target" : "final##XVr0DjUQ",
+    "targetPort" : "n0kh8nFs"
+  } ],
   "component" : "Model"
 }

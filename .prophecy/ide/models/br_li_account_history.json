@@ -1071,7 +1071,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM linkedin_account_data\n",
-        "isModel" : false,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -1080,108 +1079,10 @@
       "ports" : {
         "inputs" : [ {
           "id" : "UpG0AlDe",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
           "slug" : "linkedin_account_data"
         } ],
         "outputs" : [ {
           "id" : "lyLXZY4Q",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -1252,93 +1153,10 @@
       "ports" : {
         "inputs" : [ {
           "id" : "c9J4a9xL",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
           "slug" : "account_history_data"
         } ],
         "outputs" : [ {
           "id" : "P0ZZ4uuP",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -1367,40 +1185,6 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "nTiMZEuH8eus2o-fFD-IX",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "last_modified_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "created_time",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "currency",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "version_tag",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,

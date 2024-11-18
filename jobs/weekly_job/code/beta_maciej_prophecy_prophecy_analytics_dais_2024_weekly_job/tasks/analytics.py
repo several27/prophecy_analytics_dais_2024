@@ -1,33 +1,35 @@
 from beta_maciej_prophecy_prophecy_analytics_dais_2024_weekly_job.utils import *
 
 def analytics():
-    from airflow.operators.bash import BashOperator
+    from airflow.operators.python import PythonOperator
+    from datetime import timedelta
     import os
     import zipfile
     import tempfile
-    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
-    dbt_props_cmd = ""
 
-    if "/home/airflow/gcs/data":
-        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
-
-    if "run_profile_admin":
-        dbt_props_cmd = " --profile run_profile_admin"
-
-    return BashOperator(
+    return PythonOperator(
         task_id = "analytics",
-        bash_command = " && ".join(
-          ["{} && cd $tmpDir/{}".format(
-             (
-               "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
-               + "--depth 1 {} --branch {} $tmpDir".format(
-                 "https://github.com/several27/prophecy_analytics_dais_2024",
-                 "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__"
-               )
-             ),
-             ""
-           ),            "dbt seed" + dbt_props_cmd,  "dbt run" + dbt_props_cmd,  "dbt test" + dbt_props_cmd]
-        ),
-        env = envs,
-        append_env = True,
+        python_callable = invoke_dbt_runner,
+        op_kwargs = {
+          "is_adhoc_run_from_same_project": False,
+          "is_prophecy_managed": False,
+          "run_deps": False,
+          "run_seeds": True,
+          "run_parents": False,
+          "run_children": False,
+          "run_tests": True,
+          "run_mode": "project",
+          "entity_kind": None,
+          "entity_name": None,
+          "project_id": "302",
+          "git_entity": "branch",
+          "git_entity_value": None,
+          "git_ssh_url": "",
+          "git_sub_path": "",
+          "select": "",
+          "threads": "",
+          "exclude": "",
+          "run_props": "",
+          "envs": {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
+        },
     )

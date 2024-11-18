@@ -70,133 +70,10 @@
       "ports" : {
         "inputs" : [ {
           "id" : "_9QUjotO3mybGFrmpfpGz$$9E1KD7ceK6pt-SRXxjLmX",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "updated_at",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "_fivetran_synced",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "auto_tagging_enabled",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "currency_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "descriptive_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "final_url_suffix",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "hidden",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "manager",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "manager_customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "optimization_score",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "pay_per_conversion_eligibility_failure_reasons",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "test_account",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "time_zone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "tracking_url_template",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
           "slug" : "dt_go_account_history"
         } ],
         "outputs" : [ {
           "id" : "hfbEJWM_CKk2sjw7AyK68$$wP58ITXTGY0y-41Md-X2G",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "updated_at",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "currency_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "auto_tagging_enabled",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "time_zone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "is_most_recent_record",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -218,7 +95,6 @@
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
         "query" : "SELECT * \n\nFROM cleanup\n",
-        "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -227,98 +103,10 @@
       "ports" : {
         "inputs" : [ {
           "id" : "LIWb4cvI",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "updated_at",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "currency_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "auto_tagging_enabled",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "time_zone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "is_most_recent_record",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            } ]
-          },
           "slug" : "cleanup"
         } ],
         "outputs" : [ {
           "id" : "oTRVDXOA",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "source_relation",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "updated_at",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "currency_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "auto_tagging_enabled",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "time_zone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "is_most_recent_record",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -347,85 +135,6 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "wJzu0_fncZ7Ppxt_SBxDD",
-          "schema" : {
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "updated_at",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "_fivetran_synced",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "auto_tagging_enabled",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "currency_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "descriptive_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "final_url_suffix",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "hidden",
-              "dataType" : {
-                "type" : "Boolean"
-              }
-            }, {
-              "name" : "manager",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "manager_customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "optimization_score",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "pay_per_conversion_eligibility_failure_reasons",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "test_account",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "time_zone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "tracking_url_template",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
