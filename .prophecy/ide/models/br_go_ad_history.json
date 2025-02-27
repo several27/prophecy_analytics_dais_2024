@@ -15,8 +15,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "br_go_ad_history",
-        "x" : 300,
-        "y" : 0,
+        "x" : 400,
+        "y" : -20,
         "phase" : 0,
         "macroDependencies" : [ ],
         "comment" : "Creates a new table 'br_go_ad_history' by selecting all records from 'Reformat_1'.",

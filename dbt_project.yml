@@ -26,6 +26,12 @@ macro-paths:
 target-path: "target"
 
 # ==================
-# Model Configs
+# Variable Configs
 # ==================
-models: null
+vars:
+  db_env: "prod"
+
+# ============
+# Misc
+# ============
+dispatch: []

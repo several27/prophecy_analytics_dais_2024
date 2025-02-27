@@ -159,7 +159,7 @@ sqlModels:
       - name: date_day
         dataType:
           type: Date
-      - name: account_id
+      - name: account_id_2
         dataType:
           type: Integer
       - name: account_name
@@ -479,25 +479,7 @@ sqlModels:
     createdAt: '2024-06-11 03:48:00'
   .prophecy/metadata/sqlmodels/gl_all_account_report:
     name: gl_all_account_report
-    schema:
-      entityType: ''
-      providerType: Databricks
-      fields:
-      - name: source_relation
-        dataType:
-          type: String
-      - name: account_id
-        dataType:
-          type: Integer
-      - name: clicks
-        dataType:
-          type: Bigint
-      - name: impressions
-        dataType:
-          type: Bigint
-      - name: cost
-        dataType:
-          type: Double
+    schema: null
     description: null
     author: maciej@prophecy.io
     files:
@@ -640,28 +622,19 @@ sqlModels:
       - name: TOTAL_CLICKS
         dataType:
           type: Bigint
-      - name: TOTAL_IMPRESSIONS
-        dataType:
-          type: Bigint
       - name: TOTAL_SPEND
         dataType:
           type: Double
-      - name: date_day
+      - name: TOTAL_IMPRESSIONS
         dataType:
-          type: Date
-      - name: ad_network_type
-        dataType:
-          type: String
-      - name: device
-        dataType:
-          type: String
+          type: Bigint
       - name: currency_code
         dataType:
           type: String
-      - name: updated_at
+      - name: is_most_recent_record
         dataType:
-          type: Timestamp
-      - name: pretty_spend
+          type: Boolean
+      - name: device
         dataType:
           type: String
     description: null
@@ -676,7 +649,7 @@ sqlModels:
       seeds: []
       sources: []
       snapshots: []
-    createdAt: '2024-06-10 19:58:04'
+    createdAt: '2024-12-12 23:09:57'
 sqlSnapshots: {}
 sqlTests: {}
 sqlMacros: {}
@@ -1641,6 +1614,59 @@ sqlSources:
       description: null
       author: maciej@prophecy.io
       createdAt: '2024-06-10 19:42:20'
+    - name: google_account_history_data
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: id
+          dataType:
+            type: Integer
+        - name: updated_at
+          dataType:
+            type: Timestamp
+        - name: _fivetran_synced
+          dataType:
+            type: Timestamp
+        - name: auto_tagging_enabled
+          dataType:
+            type: Boolean
+        - name: currency_code
+          dataType:
+            type: String
+        - name: descriptive_name
+          dataType:
+            type: String
+        - name: final_url_suffix
+          dataType:
+            type: Boolean
+        - name: hidden
+          dataType:
+            type: Boolean
+        - name: manager
+          dataType:
+            type: String
+        - name: manager_customer_id
+          dataType:
+            type: Integer
+        - name: optimization_score
+          dataType:
+            type: Float
+        - name: pay_per_conversion_eligibility_failure_reasons
+          dataType:
+            type: String
+        - name: test_account
+          dataType:
+            type: String
+        - name: time_zone
+          dataType:
+            type: String
+        - name: tracking_url_template
+          dataType:
+            type: String
+      description: null
+      author: maciej@prophecy.io
+      createdAt: '2024-12-04 16:28:49'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

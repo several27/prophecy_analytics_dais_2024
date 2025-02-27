@@ -65,7 +65,7 @@
           "expression" : {
             "expression" : "any_value(account_id)"
           },
-          "alias" : "account_id"
+          "alias" : "account_id_2"
         }, {
           "expression" : {
             "expression" : "any_value(account_name)"
@@ -127,7 +127,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##account_id", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##clicks", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##impressions", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##cost" ],
+        "columnsSelector" : [ "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##account_id", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##source_relation", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##date_day", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##account_name", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##version_tag", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##currency", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##status", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##type", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##last_modified_time", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##created_time", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##clicks", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##impressions", "qVMlmeievQ_-3Zh0OhH0Q$$wdJCAttLybwRLfWaAFvE2##cost" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "account_id"

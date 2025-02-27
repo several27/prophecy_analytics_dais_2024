@@ -1,3 +1,12 @@
+{{
+  config({    
+    "materialized": "view",
+    "strategy": "timestamp",
+    "target_schema": "default",
+    "updated_at": "TOTAL_CLICKS"
+  })
+}}
+
 WITH br_go_account_history AS (
 
   SELECT * 
@@ -23,14 +32,14 @@ by_account_id_source_relation AS (
     br_go_account_stats.clicks AS clicks,
     br_go_account_stats.spend AS spend,
     br_go_account_stats.impressions AS impressions,
+    br_go_account_history.auto_tagging_enabled AS auto_tagging_enabled,
     br_go_account_history.currency_code AS currency_code,
-    br_go_account_history.updated_at AS updated_at,
+    br_go_account_history.is_most_recent_record AS is_most_recent_record,
+    br_go_account_history.account_name AS account_name,
     br_go_account_history.account_id AS account_id,
     br_go_account_history.source_relation AS source_relation,
-    br_go_account_history.account_name AS account_name,
-    br_go_account_history.auto_tagging_enabled AS auto_tagging_enabled,
-    br_go_account_history.time_zone AS time_zone,
-    br_go_account_history.is_most_recent_record AS is_most_recent_record
+    br_go_account_history.updated_at AS updated_at,
+    br_go_account_history.time_zone AS time_zone
   
   FROM br_go_account_history
   INNER JOIN br_go_account_stats
@@ -41,17 +50,15 @@ by_account_id_source_relation AS (
 
 account_performance_summary AS (
 
-  {#Summarizes advertising performance metrics for each account, including clicks, impressions, and spend.#}
+  {#Summarizes account performance metrics including clicks, spend, and impressions for better financial insights.#}
   SELECT 
     account_id,
     SUM(clicks) AS TOTAL_CLICKS,
-    SUM(impressions) AS TOTAL_IMPRESSIONS,
     SUM(spend) AS TOTAL_SPEND,
-    any_value(date_day) AS date_day,
-    any_value(ad_network_type) AS ad_network_type,
-    any_value(device) AS device,
+    SUM(impressions) AS TOTAL_IMPRESSIONS,
     any_value(currency_code) AS currency_code,
-    any_value(updated_at) AS updated_at
+    any_value(is_most_recent_record) AS is_most_recent_record,
+    any_value(device) AS device
   
   FROM by_account_id_source_relation
   
@@ -61,30 +68,17 @@ account_performance_summary AS (
 
 account_performance_summary_1 AS (
 
-  {#Summarizes account performance metrics, including clicks, impressions, and spending, while formatting the spend amount for better readability.#}
+  {#Summarizes key performance metrics for accounts, providing insights into clicks, spending, and impressions.#}
   SELECT 
     account_id AS account_id,
     TOTAL_CLICKS AS TOTAL_CLICKS,
-    TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
     TOTAL_SPEND AS TOTAL_SPEND,
-    date_day AS date_day,
-    ad_network_type AS ad_network_type,
-    device AS device,
+    TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
     currency_code AS currency_code,
-    updated_at AS updated_at,
-    CONCAT(
-      CASE currency_code
-        WHEN 'USD'
-          THEN '$'
-        WHEN 'GBP'
-          THEN '£'
-        WHEN 'EUR'
-          THEN '€'
-        ELSE ''
-      END, 
-      FORMAT_NUMBER(TOTAL_SPEND, 2)) AS pretty_spend
+    is_most_recent_record AS is_most_recent_record,
+    device AS device
   
-  FROM account_performance_summary
+  FROM account_performance_summary AS in0
 
 ),
 

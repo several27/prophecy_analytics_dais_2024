@@ -6,19 +6,19 @@ WITH br_li_campaign_history AS (
 
 ),
 
-br_li_ad_analytics_by_campaign AS (
-
-  SELECT * 
-  
-  FROM {{ ref('br_li_ad_analytics_by_campaign')}}
-
-),
-
 br_li_account_history AS (
 
   SELECT * 
   
   FROM {{ ref('br_li_account_history')}}
+
+),
+
+br_li_ad_analytics_by_campaign AS (
+
+  SELECT * 
+  
+  FROM {{ ref('br_li_ad_analytics_by_campaign')}}
 
 ),
 
@@ -55,7 +55,7 @@ campaign_analytics_summary AS (
   SELECT 
     any_value(source_relation) AS source_relation,
     any_value(date_day) AS date_day,
-    any_value(account_id) AS account_id,
+    any_value(account_id) AS account_id_2,
     any_value(account_name) AS account_name,
     any_value(version_tag) AS version_tag,
     any_value(currency) AS currency,

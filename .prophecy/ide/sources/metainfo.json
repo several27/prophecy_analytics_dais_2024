@@ -611,7 +611,76 @@
     }, {
       "type" : "Catalog",
       "name" : "main",
-      "children" : [ ]
+      "children" : [ {
+        "type" : "Schema",
+        "name" : "default",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "helloworld",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "information_schema",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "khagesh",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "maciej",
+        "tables" : {
+          "opps" : {
+            "entityType" : "TABLE",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CompanEXTID",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "Amount",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Project_Name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Oppurtunity_Name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Stage",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Close_Date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "_rescued_data",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "piyush_test",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "prophecy_update_3_3_9",
+        "children" : [ ]
+      } ]
     }, {
       "type" : "Catalog",
       "name" : "samples",
@@ -655,9 +724,9 @@
     "type" : "Model",
     "syncedOnce" : true
   }, {
-    "name" : "gl_all_account_report",
+    "name" : "sv_go_account_report",
     "type" : "Model",
-    "syncedOnce" : false
+    "syncedOnce" : true
   }, {
     "name" : "sv_li_account_report",
     "type" : "Model",

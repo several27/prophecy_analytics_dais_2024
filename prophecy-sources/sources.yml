@@ -1,6 +1,118 @@
 ---
 version: 2
 sources:
+- name: "google"
+  database: "dais_2024"
+  schema: "analytics_data"
+  config:
+    enabled: true
+  tables:
+  - name: "google_account_history_data"
+    columns:
+    - name: "id"
+      dataType:
+        type: "Integer"
+    - name: "updated_at"
+      dataType:
+        type: "Timestamp"
+    - name: "_fivetran_synced"
+      dataType:
+        type: "Timestamp"
+    - name: "auto_tagging_enabled"
+      dataType:
+        type: "Boolean"
+    - name: "currency_code"
+      dataType:
+        type: "String"
+    - name: "descriptive_name"
+      dataType:
+        type: "String"
+    - name: "final_url_suffix"
+      dataType:
+        type: "Boolean"
+    - name: "hidden"
+      dataType:
+        type: "Boolean"
+    - name: "manager"
+      dataType:
+        type: "String"
+    - name: "manager_customer_id"
+      dataType:
+        type: "Integer"
+    - name: "optimization_score"
+      dataType:
+        type: "Float"
+    - name: "pay_per_conversion_eligibility_failure_reasons"
+      dataType:
+        type: "String"
+    - name: "test_account"
+      dataType:
+        type: "String"
+    - name: "time_zone"
+      dataType:
+        type: "String"
+    - name: "tracking_url_template"
+      dataType:
+        type: "String"
+  - name: "google_account_stats_data"
+    columns:
+    - name: "_fivetran_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "date"
+      dataType:
+        type: "Date"
+    - name: "_fivetran_synced"
+      dataType:
+        type: "Timestamp"
+    - name: "active_view_impressions"
+      dataType:
+        type: "Integer"
+    - name: "active_view_measurability"
+      dataType:
+        type: "Integer"
+    - name: "active_view_measurable_cost_micros"
+      dataType:
+        type: "Integer"
+    - name: "active_view_measurable_impressions"
+      dataType:
+        type: "Integer"
+    - name: "active_view_viewability"
+      dataType:
+        type: "Integer"
+    - name: "ad_network_type"
+      dataType:
+        type: "String"
+    - name: "clicks"
+      dataType:
+        type: "Integer"
+    - name: "conversions"
+      dataType:
+        type: "Integer"
+    - name: "conversions_value"
+      dataType:
+        type: "Float"
+    - name: "cost_micros"
+      dataType:
+        type: "Integer"
+    - name: "device"
+      dataType:
+        type: "String"
+    - name: "impressions"
+      dataType:
+        type: "Integer"
+    - name: "interaction_event_types"
+      dataType:
+        type: "String"
+    - name: "interactions"
+      dataType:
+        type: "Integer"
+    - name: "view_through_conversions"
+      dataType:
+        type: "Integer"
 - name: "linkedin"
   database: "dais_2024"
   schema: "analytics_data"
@@ -238,12 +350,6 @@ sources:
     - name: "version_tag"
       dataType:
         type: "Integer"
-- name: "google"
-  database: "dais_2024"
-  schema: "analytics_data"
-  config:
-    enabled: true
-  tables:
   - name: "google_account_history_data"
     columns:
     - name: "id"
@@ -291,62 +397,3 @@ sources:
     - name: "tracking_url_template"
       dataType:
         type: "String"
-  - name: "google_account_stats_data"
-    columns:
-    - name: "_fivetran_id"
-      dataType:
-        type: "String"
-    - name: "customer_id"
-      dataType:
-        type: "Integer"
-    - name: "date"
-      dataType:
-        type: "Date"
-    - name: "_fivetran_synced"
-      dataType:
-        type: "Timestamp"
-    - name: "active_view_impressions"
-      dataType:
-        type: "Integer"
-    - name: "active_view_measurability"
-      dataType:
-        type: "Integer"
-    - name: "active_view_measurable_cost_micros"
-      dataType:
-        type: "Integer"
-    - name: "active_view_measurable_impressions"
-      dataType:
-        type: "Integer"
-    - name: "active_view_viewability"
-      dataType:
-        type: "Integer"
-    - name: "ad_network_type"
-      dataType:
-        type: "String"
-    - name: "clicks"
-      dataType:
-        type: "Integer"
-    - name: "conversions"
-      dataType:
-        type: "Integer"
-    - name: "conversions_value"
-      dataType:
-        type: "Float"
-    - name: "cost_micros"
-      dataType:
-        type: "Integer"
-    - name: "device"
-      dataType:
-        type: "String"
-    - name: "impressions"
-      dataType:
-        type: "Integer"
-    - name: "interaction_event_types"
-      dataType:
-        type: "String"
-    - name: "interactions"
-      dataType:
-        type: "Integer"
-    - name: "view_through_conversions"
-      dataType:
-        type: "Integer"
