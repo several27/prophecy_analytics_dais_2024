@@ -70,7 +70,10 @@ account_performance_summary AS (
 
 Reformat_1 AS (
 
-  SELECT * 
+  {#Simplifies account performance data by focusing on total clicks.#}
+  SELECT 
+    account_id AS account_id,
+    TOTAL_CLICKS AS TOTAL_CLICKS
   
   FROM account_performance_summary
 

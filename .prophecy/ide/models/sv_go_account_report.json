@@ -33,11 +33,25 @@
         "x" : 640,
         "y" : 120,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "comment" : "Simplifies account performance data by focusing on total clicks.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ ]
+        "columnsSelector" : [ "V3oIP492lP8zk7FzjhZy5$$lTBeWUlXu5kSyyZGiNKPh##account_id", "V3oIP492lP8zk7FzjhZy5$$lTBeWUlXu5kSyyZGiNKPh##TOTAL_CLICKS" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "account_id"
+          },
+          "alias" : "account_id",
+          "_row_id" : "231246296"
+        }, {
+          "expression" : {
+            "expression" : "TOTAL_CLICKS"
+          },
+          "alias" : "TOTAL_CLICKS",
+          "_row_id" : "1275140279"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
@@ -209,7 +223,7 @@
       "metadata" : {
         "label" : "account_performance_summary",
         "x" : 420,
-        "y" : 120,
+        "y" : 200,
         "phase" : 0,
         "macroDependencies" : [ ],
         "comment" : "Summarizes account performance metrics including clicks, spend, and impressions for better financial insights.",
