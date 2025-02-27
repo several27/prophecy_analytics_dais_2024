@@ -7,6 +7,8 @@
   })
 }}
 
+{% set states = ['CA', 'NY'] %}
+
 WITH br_go_account_history AS (
 
   SELECT * 
@@ -66,19 +68,11 @@ account_performance_summary AS (
 
 ),
 
-account_performance_summary_1 AS (
+Reformat_1 AS (
 
-  {#Summarizes key performance metrics for accounts, providing insights into clicks, spending, and impressions.#}
-  SELECT 
-    account_id AS account_id,
-    TOTAL_CLICKS AS TOTAL_CLICKS,
-    TOTAL_SPEND AS TOTAL_SPEND,
-    TOTAL_IMPRESSIONS AS TOTAL_IMPRESSIONS,
-    currency_code AS currency_code,
-    is_most_recent_record AS is_most_recent_record,
-    device AS device
+  SELECT * 
   
-  FROM account_performance_summary AS in0
+  FROM account_performance_summary
 
 ),
 
@@ -86,7 +80,7 @@ limit_100 AS (
 
   SELECT * 
   
-  FROM account_performance_summary_1
+  FROM Reformat_1 AS account_performance_summary_1
   
   LIMIT 100
 

@@ -16,83 +16,41 @@
         "type" : "ModelConfig"
       },
       "userDefinedConfig" : {
-        "vars" : { }
+        "vars" : {
+          "states" : "['CA', 'NY']"
+        }
       }
     },
     "version" : 3
   },
   "processes" : {
-    "account_performa##Vu2cwiXC" : {
-      "id" : "account_performa##Vu2cwiXC",
+    "FDfUxJhNDrwwNaDwAuXr8$$FhpYgF0X9-Yr-YMAGqdh4" : {
+      "id" : "FDfUxJhNDrwwNaDwAuXr8$$FhpYgF0X9-Yr-YMAGqdh4",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "account_performance_summary_1",
-        "x" : 620,
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 640,
         "y" : 120,
         "phase" : 0,
-        "macroDependencies" : [ ],
-        "comment" : "Summarizes key performance metrics for accounts, providing insights into clicks, spending, and impressions.",
-        "isLabelGrayed" : false
+        "macroDependencies" : [ ]
       },
       "properties" : {
         "columnsSelector" : [ ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "account_id"
-          },
-          "alias" : "account_id",
-          "_row_id" : "1209382479"
-        }, {
-          "expression" : {
-            "expression" : "TOTAL_CLICKS"
-          },
-          "alias" : "TOTAL_CLICKS",
-          "_row_id" : "33623709"
-        }, {
-          "expression" : {
-            "expression" : "TOTAL_SPEND"
-          },
-          "alias" : "TOTAL_SPEND",
-          "_row_id" : "1056983208"
-        }, {
-          "expression" : {
-            "expression" : "TOTAL_IMPRESSIONS"
-          },
-          "alias" : "TOTAL_IMPRESSIONS",
-          "_row_id" : "1001699339"
-        }, {
-          "expression" : {
-            "expression" : "currency_code"
-          },
-          "alias" : "currency_code",
-          "_row_id" : "1831214954"
-        }, {
-          "expression" : {
-            "expression" : "is_most_recent_record"
-          },
-          "alias" : "is_most_recent_record",
-          "_row_id" : "1686629876"
-        }, {
-          "expression" : {
-            "expression" : "device"
-          },
-          "alias" : "device",
-          "_row_id" : "525568327"
-        } ]
+        "expressions" : [ ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "qoE20gNi",
-          "slug" : "in0"
+          "id" : "V3oIP492lP8zk7FzjhZy5$$lTBeWUlXu5kSyyZGiNKPh",
+          "slug" : "account_performance_summary"
         } ],
         "outputs" : [ {
-          "id" : "DerGUZbi",
+          "id" : "HJoyDIoG_kQ3D0iBmyDQp$$ThUZEm10S-PhYg8Bl71qS",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      },
-      "index" : 4
+      }
     },
     "by_account_id_so##ps9bAFHo" : {
       "id" : "by_account_id_so##ps9bAFHo",
@@ -199,7 +157,7 @@
           "_row_id" : "767266776"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "mtCpxlll##account_id", "ZYBTSQmo##account_id", "mtCpxlll##source_relation", "ZYBTSQmo##source_relation", "mtCpxlll##date_day", "mtCpxlll##ad_network_type", "mtCpxlll##device", "mtCpxlll##clicks", "mtCpxlll##spend", "mtCpxlll##impressions", "ZYBTSQmo##auto_tagging_enabled", "ZYBTSQmo##currency_code", "ZYBTSQmo##is_most_recent_record", "ZYBTSQmo##account_name", "ZYBTSQmo##account_id", "ZYBTSQmo##source_relation", "ZYBTSQmo##updated_at", "ZYBTSQmo##time_zone" ],
         "headAlias" : "br_go_account_history"
       },
       "ports" : {
@@ -216,8 +174,7 @@
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      },
-      "index" : 2
+      }
     },
     "br_go_account_hi##Fve9dhjQ" : {
       "id" : "br_go_account_hi##Fve9dhjQ",
@@ -306,7 +263,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "TgOPbif6##account_id", "TgOPbif6##clicks", "TgOPbif6##spend", "TgOPbif6##impressions", "TgOPbif6##currency_code", "TgOPbif6##is_most_recent_record", "TgOPbif6##device" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "account_id"
@@ -325,8 +282,7 @@
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      },
-      "index" : 3
+      }
     },
     "br_go_account_st##Smjof3Tx" : {
       "id" : "br_go_account_st##Smjof3Tx",
@@ -381,8 +337,7 @@
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      },
-      "index" : 5
+      }
     },
     "final##N4PGZO3p" : {
       "id" : "final##N4PGZO3p",
@@ -392,13 +347,14 @@
         "x" : 1020,
         "y" : 120,
         "phase" : 0,
+        "macroDependencies" : [ ],
         "isLabelGrayed" : false
       },
       "properties" : {
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT *\n\nFROM limit_100\n",
+        "query" : "SELECT * \n\nFROM limit_100\n",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -415,8 +371,7 @@
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
-      },
-      "index" : 6
+      }
     }
   },
   "connections" : [ {
@@ -438,23 +393,23 @@
     "target" : "account_performa##oegSdvQH",
     "targetPort" : "TgOPbif6"
   }, {
-    "id" : "rKK0MT9y",
-    "source" : "account_performa##oegSdvQH",
-    "sourcePort" : "HWQojx9R",
-    "target" : "account_performa##Vu2cwiXC",
-    "targetPort" : "qoE20gNi"
-  }, {
-    "id" : "q18vh89B",
-    "source" : "account_performa##Vu2cwiXC",
-    "sourcePort" : "DerGUZbi",
-    "target" : "limit_100##fDNn12J0",
-    "targetPort" : "cGY0UcGR"
-  }, {
     "id" : "D3nEb9LQ",
     "source" : "limit_100##fDNn12J0",
     "sourcePort" : "NKfbjFpS",
     "target" : "final##N4PGZO3p",
     "targetPort" : "TOw8u4Yx"
+  }, {
+    "id" : "LaE07OAcYI6wTFiTizTo2$$UdRlEdW_dT4dlSuF3630l",
+    "source" : "account_performa##oegSdvQH",
+    "sourcePort" : "HWQojx9R",
+    "target" : "FDfUxJhNDrwwNaDwAuXr8$$FhpYgF0X9-Yr-YMAGqdh4",
+    "targetPort" : "V3oIP492lP8zk7FzjhZy5$$lTBeWUlXu5kSyyZGiNKPh"
+  }, {
+    "id" : "vGpa6ZP77xeCJXwiDjwdF$$ZV-6c1xS4lQ0ShXJ3Wekh",
+    "source" : "FDfUxJhNDrwwNaDwAuXr8$$FhpYgF0X9-Yr-YMAGqdh4",
+    "sourcePort" : "HJoyDIoG_kQ3D0iBmyDQp$$ThUZEm10S-PhYg8Bl71qS",
+    "target" : "limit_100##fDNn12J0",
+    "targetPort" : "cGY0UcGR"
   } ],
   "component" : "Model"
 }
